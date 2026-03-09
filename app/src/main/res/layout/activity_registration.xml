@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    tools:context=".RegistrationActivity">
+
+    <!-- Header Section -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/brand_blue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:padding="12dp"
+        android:src="@drawable/ic_arrow_back_white"
+        app:layout_constraintBottom_toBottomOf="@id/header_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/header_bg" />
+
+    <TextView
+        android:id="@+id/tv_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Patient Registration"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_back"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="40dp">
+
+            <!-- Profile Icon -->
+            <View
+                android:id="@+id/view_profile_bg"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:background="@drawable/bg_circle_blue_light"
+                android:alpha="0.3"
+                android:layout_marginBottom="32dp"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="-118dp"
+                android:layout_marginBottom="78dp"
+                android:src="@drawable/ic_person_add"
+                app:tint="@color/brand_blue" />
+
+            <!-- Form Content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Full Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FULL NAME"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/et_patient_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_edit_input_box"
+                    android:hint="John Doe"
+                    android:paddingHorizontal="20dp"
+                    android:textColor="#1E293B"
+                    android:textSize="16sp"
+                    android:inputType="textPersonName"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- DOB -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DATE OF BIRTH"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="24dp">
+                    <EditText
+                        android:id="@+id/et_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_edit_input_box"
+                        android:focusable="false"
+                        android:paddingHorizontal="20dp"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_calendar"
+                        app:tint="@color/brand_blue"
+                        android:visibility="visible"/>
+                    <!-- Shift text if icon is there? Wait, the hint should be clear. -->
+                </RelativeLayout>
+
+                <!-- Gender -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GENDER"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/et_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_edit_input_box"
+                    android:paddingHorizontal="20dp"
+                    android:textColor="#1E293B"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- MRN -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MEDICAL RECORD NUMBER"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="24dp">
+                    <EditText
+                        android:id="@+id/et_mrn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_edit_input_box"
+                        android:hint="MRN-XXXX"
+                        android:paddingStart="52dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_hash"
+                        app:tint="@color/brand_blue"/>
+                </RelativeLayout>
+
+                <!-- Reason -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REASON FOR X-RAY"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/et_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@drawable/bg_edit_input_box"
+                    android:hint="Chest pain, shortness of breath..."
+                    android:padding="20dp"
+                    android:textColor="#1E293B"
+                    android:textSize="16sp"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:layout_marginBottom="32dp"/>
+
+                <!-- Register Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_register_patient"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_button_rounded_blue"
+                    android:alpha="0.6"
+                    android:text="Register Patient"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/language_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    tools:context=".LanguageActivity">
+
+    <!-- Header Section -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#0F766E"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_arrow_back_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Language"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintStart_toEndOf="@id/iv_back"
+            app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="40dp">
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_search_container"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="#64748B" />
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Search languages..."
+                    android:textColor="#1E293B"
+                    android:textColorHint="#94A3B8"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- SUGGESTED Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="12dp"
+                android:text="SUGGESTED"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"/>
+
+            <!-- English (US) Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_english"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_english"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_teal_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EN"
+                        android:textColor="#0F766E"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_english"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_english"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_english"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_english"/>
+
+                    <TextView
+                        android:id="@+id/tv_language_name_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="English (US)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_english"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_english"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Spanish Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_spanish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_spanish"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_spanish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ES"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_spanish"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_spanish"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_spanish"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_spanish"/>
+
+                    <TextView
+                        android:id="@+id/tv_language_name_spanish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Spanish (Español)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_spanish"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_spanish"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ALL LANGUAGES Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
+                android:text="ALL LANGUAGES"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"/>
+
+            <!-- Chinese Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_chinese"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_chinese"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_chinese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CH"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_chinese"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_chinese"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_chinese"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_chinese"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Chinese (Simplified)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_chinese"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_chinese"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- French Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_french"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_french"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_french"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FR"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_french"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_french"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_french"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_french"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="French (Français)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_french"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_french"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- German Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_german"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_german"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_german"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GE"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_german"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_german"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_german"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_german"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="German (Deutsch)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_german"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_german"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Hindi Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_hindi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_hindi"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_hindi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HI"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_hindi"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_hindi"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_hindi"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_hindi"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Hindi (हिंदी)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_hindi"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_hindi"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Japanese Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_japanese"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_japanese"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_japanese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JA"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_japanese"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_japanese"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_japanese"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_japanese"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Japanese (日本語)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_japanese"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_japanese"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Korean Item -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_korean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+                    
+                    <View
+                        android:id="@+id/iv_badge_bg_korean"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_badge_korean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KO"
+                        android:textColor="#64748B"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/iv_badge_bg_korean"
+                        app:layout_constraintEnd_toEndOf="@id/iv_badge_bg_korean"
+                        app:layout_constraintTop_toTopOf="@id/iv_badge_bg_korean"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_badge_bg_korean"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Korean (한국어)"
+                        android:textColor="#1E293B"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/iv_badge_bg_korean"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_check_korean"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:visibility="invisible"
+                        app:tint="#0F766E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

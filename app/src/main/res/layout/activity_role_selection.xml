@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/role_selection"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    tools:context=".RoleSelectionActivity">
+
+    <!-- Header Section -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="409dp"
+        android:layout_height="68dp"
+        android:background="#1E62F0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_back_header"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_arrow_back_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Navigation Element -->
+    <LinearLayout
+        android:id="@+id/ll_back_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_bg">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="#1E62F0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Back"
+            android:textColor="#1E62F0"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Select Your Role"
+        android:textColor="#0F172A"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_back_navigation" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Choose your role to continue"
+        android:textColor="#64748B"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+
+        <!-- Doctor Card -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_role_card"
+            android:elevation="4dp"
+            android:padding="20dp">
+
+            <View
+                android:id="@+id/icon_bg_doctor"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_role_icon_blue_rounded"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_doctor"
+                app:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/icon_bg_doctor"
+                app:layout_constraintEnd_toEndOf="@id/icon_bg_doctor"
+                app:layout_constraintStart_toStartOf="@id/icon_bg_doctor"
+                app:layout_constraintTop_toTopOf="@id/icon_bg_doctor" />
+
+            <TextView
+                android:id="@+id/tv_doctor_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Doctor"
+                android:textColor="#0F172A"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/icon_bg_doctor"
+                app:layout_constraintTop_toTopOf="@id/icon_bg_doctor"
+                app:layout_constraintBottom_toTopOf="@id/tv_doctor_subtitle"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_doctor_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Radiologist / Physician"
+                android:textColor="#64748B"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_doctor_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctor_title"
+                app:layout_constraintBottom_toBottomOf="@id/icon_bg_doctor" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_chevron_right"
+                app:tint="#CBD5E1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Technician Card -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_technician"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_role_card"
+            android:elevation="4dp"
+            android:padding="20dp">
+
+            <View
+                android:id="@+id/icon_bg_tech"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_role_icon_blue_rounded"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_fullscreen"
+                app:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/icon_bg_tech"
+                app:layout_constraintEnd_toEndOf="@id/icon_bg_tech"
+                app:layout_constraintStart_toStartOf="@id/icon_bg_tech"
+                app:layout_constraintTop_toTopOf="@id/icon_bg_tech" />
+
+            <TextView
+                android:id="@+id/tv_tech_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Technician"
+                android:textColor="#0F172A"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/icon_bg_tech"
+                app:layout_constraintTop_toTopOf="@id/icon_bg_tech"
+                app:layout_constraintBottom_toTopOf="@id/tv_tech_subtitle"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_tech_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Radiography Staff"
+                android:textColor="#64748B"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_tech_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_tech_title"
+                app:layout_constraintBottom_toBottomOf="@id/icon_bg_tech" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_chevron_right"
+                app:tint="#CBD5E1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

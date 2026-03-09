@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- ID Label and Value -->
+        <TextView
+            android:id="@+id/tv_case_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID:\nSC-5501"
+            android:textColor="#334155"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/tv_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2023-10-24 10:30 AM"
+            android:textColor="#94A3B8"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Thumbnail Image -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_thumbnail"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_case_id">
+
+            <ImageView
+                android:id="@+id/iv_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_scan_placeholder" />
+
+            <ImageView
+                android:id="@+id/iv_alert_overlay"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="4dp"
+                android:src="@drawable/ic_alert_triangle"
+                android:visibility="gone"
+                app:tint="@color/critical_red" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Patient Name -->
+        <TextView
+            android:id="@+id/tv_patient_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Patient Name"
+            android:textColor="#1E293B"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/card_thumbnail" />
+
+        <!-- Tags Layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/card_thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_patient_name"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                android:id="@+id/tv_priority_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_badge_light_red"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="High"
+                android:textColor="@color/critical_red"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_ai_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_badge_light_gray"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="AI: Pneumonia Detected"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                app:layout_goneMarginStart="16dp"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

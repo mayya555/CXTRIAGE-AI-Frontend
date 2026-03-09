@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.CXTRIAGEAI">
+        <activity
+            android:name=".ProfilePhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AiPerformanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlertsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportSentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportPreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinalDiagnosisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CaseReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CaseQueueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TermsPrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RoleSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrivacySecurityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileCameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThemeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HospitalSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OTPVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PasswordResetSuccessActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RadiologistDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TechnicianDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrepareProcedureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AiHeatmapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportGenerationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScannerPreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanQualityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProcessingSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadScanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PatientRegistrationSuccessActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".DiagnosisModificationActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".ProcessingStudyActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

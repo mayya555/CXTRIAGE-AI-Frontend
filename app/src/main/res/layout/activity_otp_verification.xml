@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/otp_verification_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".OTPVerificationActivity">
+
+    <!-- Header Section -->
+    <View
+        android:id="@+id/header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/brand_blue"
+        app:layout_constraintBottom_toBottomOf="@id/header_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Verify Email"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintStart_toEndOf="@id/iv_back"
+            app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Central Icon Section -->
+    <ImageView
+        android:id="@+id/iv_verify_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bg_circle_blue_light"
+        android:padding="24dp"
+        android:src="@drawable/ic_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_bg"
+        app:tint="@color/brand_blue" />
+
+    <TextView
+        android:id="@+id/tv_verify_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Check your email"
+        android:textColor="#0F172A"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_verify_icon" />
+
+    <TextView
+        android:id="@+id/tv_instruction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="We've sent a 6-digit verification code to your email"
+        android:textColor="#64748B"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_verify_title" />
+
+    <!-- OTP Input Section -->
+    <TextView
+        android:id="@+id/tv_otp_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="ENTER OTP"
+        android:textColor="#64748B"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_instruction" />
+
+    <LinearLayout
+        android:id="@+id/otp_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_otp_label">
+
+        <EditText
+            android:id="@+id/et_otp1"
+            style="@style/OtpEditTextStyle" />
+
+        <EditText
+            android:id="@+id/et_otp2"
+            style="@style/OtpEditTextStyle" />
+
+        <EditText
+            android:id="@+id/et_otp3"
+            style="@style/OtpEditTextStyle" />
+
+        <EditText
+            android:id="@+id/et_otp4"
+            style="@style/OtpEditTextStyle" />
+
+        <EditText
+            android:id="@+id/et_otp5"
+            style="@style/OtpEditTextStyle" />
+
+        <EditText
+            android:id="@+id/et_otp6"
+            style="@style/OtpEditTextStyle" />
+
+    </LinearLayout>
+
+    <!-- Resend Section -->
+    <TextView
+        android:id="@+id/tv_resend_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Didn't receive the code? Resend in 30s"
+        android:textColor="#64748B"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otp_container" />
+
+    <!-- Button Section -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_button_blue"
+        android:text="Verify &amp; Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

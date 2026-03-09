@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".ProfileCameraActivity">
+
+    <!-- Camera Preview Placeholder -->
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#202020" />
+
+    <!-- Circular Guide Overlay -->
+    <View
+        android:id="@+id/view_overlay_guide"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_circle_outline_thin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <!-- Close Button -->
+    <FrameLayout
+        android:id="@+id/btn_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_circle_translucent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_close_white" />
+    </FrameLayout>
+
+    <!-- Bottom Controls Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Flash Toggle -->
+        <FrameLayout
+            android:id="@+id/btn_flash"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="48dp"
+            android:background="@drawable/bg_circle_translucent"
+            app:layout_constraintBottom_toBottomOf="@id/btn_shutter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_shutter">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_flash_off" />
+        </FrameLayout>
+
+        <!-- Shutter Button -->
+        <View
+            android:id="@+id/btn_shutter"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_shutter_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Switch Camera -->
+        <FrameLayout
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="48dp"
+            android:background="@drawable/bg_circle_translucent"
+            app:layout_constraintBottom_toBottomOf="@id/btn_shutter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_shutter">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_camera_switch" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

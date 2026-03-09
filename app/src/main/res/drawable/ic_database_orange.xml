@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#EA580C">
+  <path
+      android:fillColor="@android:color/white"
+      android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8zM11,7h2v6h-2zM11,15h2v2h-2z"/> 
+  <!-- Using error/info shape for backup implies more like 'log' or 'alert' on DB, but standard DB stack icon is specific. I'll use a generic DB stack shape if I can remember path, or simpler icon. Let's use a standard stack shape. -->
+  <path
+      android:fillColor="@android:color/white"
+      android:pathData="M12,2C6.48,2 2,4.24 2,7v10c0,2.76 4.48,5 10,5s10,-2.24 10,-5V7c0,-2.76 -4.48,-5 -10,-5zM12,4c3.53,0 6.64,0.92 8.35,2.34C18.64,7.76 15.53,8.68 12,8.68s-6.64,-0.92 -8.35,-2.34C5.36,4.92 8.47,4 12,4zM12,19.96c-3.11,0 -5.88,-0.71 -7.63,-1.83 0.94,-0.6 2.24,-1.09 3.79,-1.42C8.8,16.92 9.6,17.06 10.45,17.13 10.96,17.17 11.48,17.19 12,17.19s1.04,-0.02 1.55,-0.06c0.85,-0.07 1.65,-0.21 2.29,-0.42 1.55,0.33 2.85,0.82 3.79,1.42 -1.75,1.12 -4.52,1.83 -7.63,1.83z"/>
+</vector>
