@@ -2,7 +2,17 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CXTRIAGEAI" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brand_green</item>
+        <item name="colorSecondary">#34D399</item>
+        <item name="android:statusBarColor">@color/brand_green</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+    </style>
+
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in_slide_up</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_down_fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in_slide_up</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_down_fade_out</item>
     </style>
 
     <style name="Theme.CXTRIAGEAI" parent="Base.Theme.CXTRIAGEAI" />

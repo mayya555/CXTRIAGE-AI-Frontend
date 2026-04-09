@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/brand_blue"
+        android:background="@color/brand_green"
         app:layout_constraintBottom_toBottomOf="@id/header_container"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Your Hospital"
-                android:textColor="#1E293B"
+                android:textColor="#022C22"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Select the medical facility you are currently associated with to continue."
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="16sp" />
 
             <Space
@@ -88,6 +88,18 @@
                 android:layout_height="32dp" />
 
             <!-- Hospital Cards -->
+            <include
+                android:id="@+id/card_simats"
+                layout="@layout/item_hospital_card" />
+
+            <include
+                android:id="@+id/card_saveetha"
+                layout="@layout/item_hospital_card" />
+
+            <include
+                android:id="@+id/card_saveetha_medical"
+                layout="@layout/item_hospital_card" />
+
             <include
                 android:id="@+id/card_apollo"
                 layout="@layout/item_hospital_card" />
@@ -106,6 +118,22 @@
 
             <include
                 android:id="@+id/card_aiims"
+                layout="@layout/item_hospital_card" />
+
+            <include
+                android:id="@+id/card_srm"
+                layout="@layout/item_hospital_card" />
+
+            <include
+                android:id="@+id/card_mgm"
+                layout="@layout/item_hospital_card" />
+
+            <include
+                android:id="@+id/card_cmc"
+                layout="@layout/item_hospital_card" />
+
+            <include
+                android:id="@+id/card_add_hospital"
                 layout="@layout/item_hospital_card" />
 
         </LinearLayout>

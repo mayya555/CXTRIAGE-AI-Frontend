@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feedback_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8FAFC"
@@ -12,37 +13,46 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        android:background="@color/brand_blue"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:padding="8dp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Send Feedback"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/btn_back"
-        app:layout_constraintStart_toEndOf="@id/btn_back"
-        app:layout_constraintTop_toTopOf="@id/btn_back" />
+        android:paddingTop="52dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_arrow_back_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Send Feedback"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back"
+            app:layout_constraintStart_toEndOf="@id/btn_back"
+            app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_container"
         app:layout_constraintTop_toBottomOf="@id/header_bg">
 
         <LinearLayout
@@ -51,12 +61,13 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Type Selector -->
+            <!-- Type Selector Tabs -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="@drawable/bg_badge_light_gray"
                 android:padding="4dp"
+                android:elevation="1dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -67,7 +78,7 @@
                     android:gravity="center"
                     android:text="General Feedback"
                     android:textColor="#1E293B"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     android:background="@drawable/bg_toggle_tab" />
 
@@ -78,10 +89,10 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Complaint"
-                    android:textColor="#94A3B8"
-                    android:textSize="15sp"
+                    android:textColor="#64748B"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    android:background="@drawable/bg_toggle_tab" />
+                    android:background="@android:color/transparent" />
             </LinearLayout>
 
             <TextView
@@ -89,8 +100,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="SUBJECT"
-                android:textColor="#94A3B8"
-                android:textSize="13sp"
+                android:textColor="@color/brand_green"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
@@ -103,8 +114,9 @@
                 android:hint="Brief description of your feedback"
                 android:paddingHorizontal="20dp"
                 android:textColor="#1E293B"
-                android:textColorHint="#CBD5E1"
-                android:textSize="16sp"
+                android:textColorHint="#94A3B8"
+                android:textSize="15sp"
+                android:elevation="1dp"
                 android:inputType="textCapSentences" />
 
             <TextView
@@ -112,8 +124,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="DESCRIPTION"
-                android:textColor="#94A3B8"
-                android:textSize="13sp"
+                android:textColor="@color/brand_green"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
@@ -127,8 +139,9 @@
                 android:hint="Please provide detailed feedback..."
                 android:padding="20dp"
                 android:textColor="#1E293B"
-                android:textColorHint="#CBD5E1"
-                android:textSize="16sp"
+                android:textColorHint="#94A3B8"
+                android:textSize="15sp"
+                android:elevation="1dp"
                 android:inputType="textMultiLine" />
 
             <TextView
@@ -146,8 +159,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="ATTACH SCREENSHOT (OPTIONAL)"
-                android:textColor="#94A3B8"
-                android:textSize="13sp"
+                android:textColor="@color/brand_green"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
@@ -163,10 +176,10 @@
                 android:focusable="true">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:src="@drawable/ic_image_upload"
-                    app:tint="#94A3B8" />
+                    app:tint="@color/brand_green" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -174,7 +187,7 @@
                     android:layout_marginTop="8dp"
                     android:text="Tap to upload screenshot"
                     android:textColor="#1E293B"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -182,24 +195,24 @@
                     android:layout_height="wrap_content"
                     android:text="PNG, JPG up to 10MB"
                     android:textColor="#94A3B8"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- Info Banner -->
+            <!-- Info Bar -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/bg_info_banner_feedback"
+                android:background="@drawable/bg_info_banner_feedback_green"
                 android:padding="20dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_info_blue"
-                    app:tint="@color/brand_blue" />
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/brand_green" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -211,7 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="We value your feedback!"
-                        android:textColor="@color/brand_blue"
+                        android:textColor="@color/brand_green_dark"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -220,25 +233,41 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:text="Our team will review your submission and respond within 24-48 hours."
-                        android:textColor="@color/brand_blue"
-                        android:textSize="14sp" />
+                        android:textColor="#065F46"
+                        android:textSize="13sp"
+                        android:alpha="0.8" />
                 </LinearLayout>
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_submit"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/bg_button_pill_blue"
-                android:text="Submit Feedback"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Button Container -->
+    <LinearLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_button_pill_green"
+            android:text="Submit Feedback"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_send"
+            android:drawablePadding="12dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            app:drawableTint="@color/white" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

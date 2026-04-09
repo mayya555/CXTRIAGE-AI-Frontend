@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CXRT AI</string>
+    <string name="report_file_size_format">%1$.2f MB • %2$s</string>
+    <string name="default_report_name">medical_report.pdf</string>
+    <string name="error_loading_details">Error loading details</string>
+    <string name="failed_load_report">Failed to load report details</string>
+    <string name="error_prefix">Error: %1$s</string>
+    <string name="invalid_case_id">Invalid case ID</string>
 </resources>

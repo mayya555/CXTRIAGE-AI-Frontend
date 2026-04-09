@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 data class CaseItem(
+    val id: Int,
     val name: String,
     val condition: String,
     val priority: String, // "CRITICAL", "URGENT", "ROUTINE"
@@ -63,6 +64,12 @@ class CaseAdapter(private val caseList: List<CaseItem>) : RecyclerView.Adapter<C
                 holder.tvPriority.setTextColor(android.graphics.Color.parseColor("#10B981"))
                 holder.priorityLine.setBackgroundColor(android.graphics.Color.parseColor("#10B981"))
             }
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = android.content.Intent(context, CaseReviewActivity::class.java)
+            intent.putExtra("CASE_ID", currentItem.id)
+            context.startActivity(intent)
         }
     }
 

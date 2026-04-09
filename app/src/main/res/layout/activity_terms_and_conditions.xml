@@ -12,7 +12,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/brand_blue"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            android:textColor="#334155"
+            android:textColor="#064E3B"
             android:textSize="14sp" />
     </ScrollView>
 
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_margin="24dp"
-        android:background="@drawable/bg_button_blue"
+        android:background="@drawable/bg_button_green"
         android:text="Accept and Continue"
         android:textAllCaps="false"
         android:textColor="@color/white"

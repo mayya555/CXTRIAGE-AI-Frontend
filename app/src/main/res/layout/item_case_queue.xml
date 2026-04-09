@@ -3,30 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    android:layout_marginHorizontal="4dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginHorizontal="20dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="24dp"
     app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="20dp">
 
-        <!-- ID Label and Value -->
+        <!-- ID and Date Row -->
         <TextView
-            android:id="@+id/tv_case_id"
+            android:id="@+id/tv_case_id_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID:\nSC-5501"
-            android:textColor="#334155"
+            android:text="ID:"
+            android:textColor="#64748B"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/tv_case_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="SC-5501"
+            android:textColor="#1E293B"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_case_id_label"
+            app:layout_constraintStart_toEndOf="@id/tv_case_id_label" />
+
         <TextView
             android:id="@+id/tv_timestamp"
             android:layout_width="wrap_content"
@@ -37,37 +48,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Thumbnail Image -->
+        <!-- Profile / Thumbnail -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_thumbnail"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="12dp"
-            app:cardCornerRadius="12dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_case_id">
+            app:layout_constraintTop_toBottomOf="@id/tv_case_id_label">
 
             <ImageView
                 android:id="@+id/iv_thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_scan_placeholder" />
+                android:src="@drawable/img_xray_sample" />
 
             <ImageView
-                android:id="@+id/iv_alert_overlay"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:id="@+id/iv_alert_badge"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="top|end"
-                android:layout_margin="4dp"
-                android:src="@drawable/ic_alert_triangle"
-                android:visibility="gone"
-                app:tint="@color/critical_red" />
+                android:layout_margin="6dp"
+                android:src="@drawable/ic_warning_red"
+                android:visibility="gone" />
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Patient Name -->
+        <!-- Information Column -->
         <TextView
             android:id="@+id/tv_patient_name"
             android:layout_width="0dp"
@@ -75,50 +85,45 @@
             android:layout_marginStart="16dp"
             android:text="Patient Name"
             android:textColor="#1E293B"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/card_thumbnail"
             app:layout_constraintTop_toTopOf="@id/card_thumbnail" />
 
-        <!-- Tags Layout -->
+        <!-- Badges Row -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/card_thumbnail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/card_thumbnail"
-            app:layout_constraintTop_toBottomOf="@id/tv_patient_name"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintStart_toStartOf="@id/tv_patient_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_patient_name">
 
             <TextView
                 android:id="@+id/tv_priority_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:background="@drawable/bg_badge_light_red"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
                 android:text="High"
-                android:textColor="@color/critical_red"
-                android:textSize="12sp"
+                android:textColor="#BE123C"
+                android:textSize="11sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_ai_result"
+                android:id="@+id/tv_ai_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/bg_badge_light_gray"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
+                android:background="@drawable/bg_badge_light_teal"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
                 android:text="AI: Pneumonia Detected"
-                android:textColor="#64748B"
-                android:textSize="12sp"
-                app:layout_goneMarginStart="16dp"/>
-        </LinearLayout>
+                android:textColor="#065F46"
+                android:textSize="11sp" />
 
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

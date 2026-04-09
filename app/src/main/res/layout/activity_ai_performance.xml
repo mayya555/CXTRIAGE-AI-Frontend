@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="#3B32D1"
+        android:background="#064E3B"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -69,12 +69,12 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_performance" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_performance" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Processing Performance" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Average Inference: 8.2s" android:textColor="#1E293B" android:textSize="18sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Average Inference: 8.2s" android:textColor="#022C22" android:textSize="18sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Status: Running (Optimal)" android:textColor="#10B981" android:textSize="14sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Rate: 12 images/min" android:textColor="#64748B" android:textSize="14sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Rate: 12 images/min" android:textColor="#047857" android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -92,11 +92,11 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_throughput" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_throughput" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Throughput &amp; Scalability" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Total Today: 1,248 X-rays" android:textColor="#1E293B" android:textSize="18sp" android:textStyle="bold" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="ER: 45% | ICU: 30% | OPD: 25%" android:textColor="#64748B" android:textSize="14sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Total Today: 1,248 X-rays" android:textColor="#022C22" android:textSize="18sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="ER: 45% | ICU: 30% | OPD: 25%" android:textColor="#047857" android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -114,14 +114,14 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_accuracy" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_accuracy" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Accuracy &amp; Clinical KPIs" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
                     <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:columnCount="2">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sensitivity: 94.2%" android:textColor="#1E293B" android:textSize="14sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sensitivity: 94.2%" android:textColor="#022C22" android:textSize="14sp" android:textStyle="bold" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:text="NPV: 98.4%" android:textColor="#10B981" android:textSize="14sp" android:textStyle="bold" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="False Neg: 1.2%" android:textColor="#EF4444" android:textSize="14sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:layout_marginTop="4dp" android:text="AI vs Rad: 91% Match" android:textColor="#3B32D1" android:textSize="14sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="False Neg: 1.2%" android:textColor="#059669" android:textSize="14sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:layout_marginTop="4dp" android:text="AI vs Rad: 91% Match" android:textColor="#064E3B" android:textSize="14sp" />
                     </GridLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -140,11 +140,11 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_triage_stat" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_triage_stat" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Triage Effectiveness" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Critical Cases: 142 detected" android:textColor="#EF4444" android:textSize="14sp" android:textStyle="bold" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Avg Time Saved: 35m / case" android:textColor="#3B32D1" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Critical Cases: 142 detected" android:textColor="#059669" android:textSize="14sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Avg Time Saved: 35m / case" android:textColor="#064E3B" android:textSize="16sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Turnaround Reduction: 42%" android:textColor="#10B981" android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -163,12 +163,12 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_qc" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_qc" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Quality Control (QC)" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Poor Quality Flagged: 3.2%" android:textColor="#1E293B" android:textSize="15sp" android:textStyle="bold" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Issues: Motion blur, Underexposure" android:textColor="#64748B" android:textSize="13sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#FFF1F2" android:paddingHorizontal="8dp" android:paddingVertical="4dp" android:text="WARNING: Repeat image recommended for 2 cases" android:textColor="#E11D48" android:textSize="12sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Poor Quality Flagged: 3.2%" android:textColor="#022C22" android:textSize="15sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Issues: Motion blur, Underexposure" android:textColor="#047857" android:textSize="13sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#F0FDF4" android:paddingHorizontal="8dp" android:paddingVertical="4dp" android:text="WARNING: Repeat image recommended for 2 cases" android:textColor="#047857" android:textSize="12sp" android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -186,12 +186,12 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_transparency" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_transparency" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Transparency &amp; Trust" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Explainable AI: Saliency Maps Enabled" android:textColor="#3B32D1" android:textSize="14sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Explainable AI: Saliency Maps Enabled" android:textColor="#064E3B" android:textSize="14sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Validation: Clinically Validated - Active" android:textColor="#10B981" android:textSize="13sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Model: Multi-center, Multi-vendor trained" android:textColor="#64748B" android:textSize="13sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Model: Multi-center, Multi-vendor trained" android:textColor="#047857" android:textSize="13sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -209,12 +209,12 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_feedback" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_feedback" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Feedback &amp; Validation" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Acceptance Rate: 89% accepted" android:textColor="#1E293B" android:textSize="15sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Acceptance Rate: 89% accepted" android:textColor="#022C22" android:textSize="15sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Model Drift: Nominal (Stable)" android:textColor="#10B981" android:textSize="14sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Retraining: Not required at this time" android:textColor="#64748B" android:textSize="13sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Retraining: Not required at this time" android:textColor="#047857" android:textSize="13sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -232,13 +232,13 @@
                     android:orientation="vertical"
                     android:padding="20dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_blue_light" android:padding="8dp" android:src="@drawable/ic_system_health" />
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_icon_circle_green_light" android:padding="8dp" android:src="@drawable/ic_system_health" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="System Health" android:textColor="#0F172A" android:textSize="16sp" android:textStyle="bold" />
                     </LinearLayout>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Uptime: 99.98%" android:textColor="#10B981" android:textSize="18sp" android:textStyle="bold" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Model version: v2.4.1" android:textColor="#64748B" android:textSize="14sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Last Update: 2023-11-20 04:00" android:textColor="#64748B" android:textSize="12sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="• Fail-safe manual workflow: ACTIVE" android:textColor="#3B32D1" android:textSize="13sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Model version: v2.4.1" android:textColor="#047857" android:textSize="14sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Last Update: 2023-11-20 04:00" android:textColor="#047857" android:textSize="12sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="• Fail-safe manual workflow: ACTIVE" android:textColor="#064E3B" android:textSize="13sp" android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -255,7 +255,7 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/brand_blue" />
+        app:tint="@color/brand_green" />
 
     <!-- Chatbot Panel Overlay -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -326,7 +326,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_reject_x"
-                        app:tint="#64748B" />
+                        app:tint="#047857" />
                 </LinearLayout>
 
                 <!-- Disclaimer -->
@@ -369,7 +369,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Hello! I am your AI assistant. How can I help you today? You can ask me to explain metrics or troubleshoot flags."
-                                android:textColor="#334155"
+                                android:textColor="#064E3B"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -398,7 +398,7 @@
                             android:paddingHorizontal="12dp"
                             android:paddingVertical="6dp"
                             android:text="Explain this metric"
-                            android:textColor="@color/brand_blue"
+                            android:textColor="@color/brand_green"
                             android:textSize="11sp" />
 
                         <TextView
@@ -410,7 +410,7 @@
                             android:paddingHorizontal="12dp"
                             android:paddingVertical="6dp"
                             android:text="Why is this flagged?"
-                            android:textColor="@color/brand_blue"
+                            android:textColor="@color/brand_green"
                             android:textSize="11sp" />
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -443,7 +443,7 @@
                         android:layout_height="32dp"
                         android:layout_marginStart="8dp"
                         android:padding="4dp"
-                        android:src="@drawable/ic_send_blue" />
+                        android:src="@drawable/ic_send" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

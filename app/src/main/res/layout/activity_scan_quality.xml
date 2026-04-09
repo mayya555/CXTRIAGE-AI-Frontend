@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#00897B"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -169,7 +169,7 @@
                     android:paddingHorizontal="20dp"
                     android:text="Retake"
                     android:textAllCaps="false"
-                    android:textColor="#EF4444"
+                    android:textColor="#059669"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -179,8 +179,8 @@
                     android:layout_height="64dp"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button_rounded_blue"
-                    android:backgroundTint="#00897B"
+                    android:background="@drawable/bg_button_rounded_green"
+                    android:backgroundTint="@color/brand_green"
                     android:drawableStart="@drawable/ic_check_white"
                     android:drawablePadding="8dp"
                     android:paddingHorizontal="20dp"
@@ -211,7 +211,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_warning"
-                        app:tint="#D97706" />
+                        app:tint="#059669" />
 
                     <TextView
                         android:layout_width="match_parent"

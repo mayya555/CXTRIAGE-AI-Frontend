@@ -2,34 +2,64 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="brand_blue">#1E62F0</color>
-    <color name="brand_light_blue">#B5CCF7</color>
     <color name="brand_green">#10B981</color>
-    <color name="brand_purple">#8B5CF6</color>
-    <color name="bottom_nav_color">#5F6368</color>
+    <color name="brand_green_dark">#064E3B</color>
+    <color name="brand_green_light">#A7F3D0</color>
+    <color name="brand_green_soft">#F0FDF4</color>
+    <color name="brand_orange">#F59E0B</color>
+    <color name="brand_orange_dark">#B45309</color>
+    <color name="brand_orange_light">#FEF3C7</color>
+    
+    <color name="vibrant_blue">#3B82F6</color>
+    <color name="vibrant_blue_light">#DBEAFE</color>
+    <color name="vibrant_blue_soft">#EFF6FF</color>
+    
+    <color name="premium_blue">#10B981</color>
+    <color name="premium_blue_soft">#F0FDF4</color>
+    
+    <color name="soft_pink">#FDF2F8</color>
+    <color name="soft_orange">#FFF7ED</color>
+    <color name="soft_blue_light">#F0F9FF</color>
+    <color name="soft_green_light">#F0FDF4</color>
+    <color name="soft_mint">#F0FDFA</color>
+    
+    <color name="branding_blue">#4338CA</color>
+    <color name="branding_blue_dark">#312E81</color>
+    <color name="branding_blue_light">#818CF8</color>
+    
+    <color name="soft_purple">#F5F3FF</color>
+    <color name="soft_red">#FEF2F2</color>
+    <color name="soft_green">#F0FDF4</color>
+    <color name="soft_teal">#F0FDFA</color>
+    
+    <color name="brand_blue">#10B981</color>
+    <color name="brand_light_blue">#F0FDF4</color>
+    <color name="brand_purple">#4F46E5</color>
     <color name="purple_primary">#4F46E5</color>
-    <color name="critical_red">#FF5252</color>
-    <color name="urgent_orange">#FF9800</color>
-    <color name="routine_green">#4CAF50</color>
-    <color name="bg_light_gray">#F5F5F7</color>
-    <color name="text_dark">#1F2937</color>
-    <color name="text_secondary">#6B7280</color>
-    <color name="brand_teal">#0F766E</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="brand_teal">#10B981</color>
+    
+    <color name="bottom_nav_color">@color/brand_green</color>
+    <color name="critical_red">#EF4444</color>
+    <color name="urgent_orange">#F59E0B</color>
+    <color name="routine_green">#10B981</color>
+    <color name="bg_light_gray">#F0FDF4</color>
+    <color name="text_dark">#022C22</color>
+    <color name="text_secondary">#064E3B</color>
+    <color name="teal_700">#059669</color>
 
     <!-- System Health Screen Colors -->
-    <color name="mediscan_card_bg">#211F2D</color>
-    <color name="operational_green">#34C759</color>
-    <color name="warning_yellow">#FFC107</color>
-    <color name="version_tag_bg">#424242</color>
-    <color name="graph_gradient_start">#4B3B8B</color>
-    <color name="graph_gradient_end">#2A2744</color>
+    <color name="mediscan_card_bg">#064E3B</color>
+    <color name="operational_green">#10B981</color>
+    <color name="warning_yellow">#059669</color>
+    <color name="version_tag_bg">#064E3B</color>
+    <color name="graph_gradient_start">#10B981</color>
+    <color name="graph_gradient_end">#047857</color>
 
     <!-- Notification Screen Colors -->
-    <color name="notification_teal_bg">#F0FDFA</color>
-    <color name="notification_blue_bg">#EFF6FF</color>
-    <color name="notification_red_bg">#FEF2F2</color>
-    <color name="notification_teal_icon">#0D9488</color>
-    <color name="notification_blue_icon">#2563EB</color>
-    <color name="notification_red_icon">#DC2626</color>
+    <color name="notif_info_bg">#ECFDF5</color>
+    <color name="notif_success_bg">#F0FDF4</color>
+    <color name="notif_urgent_bg">#D1FAE5</color>
+    <color name="notif_info_icon">#10B981</color>
+    <color name="notif_success_icon">#10B981</color>
+    <color name="notif_urgent_icon">#059669</color>
 </resources>

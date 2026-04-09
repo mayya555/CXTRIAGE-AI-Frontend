@@ -3,14 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.any" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/applogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CXTRIAGEAI">
@@ -112,9 +114,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".RadiologistDashboardActivity"
-            android:exported="false" />
-        <activity
             android:name=".TechnicianDashboardActivity"
             android:exported="false" />
         <activity
@@ -144,18 +143,47 @@
         <activity
             android:name=".FeedbackActivity"
             android:exported="false" />
+        <activity
+            android:name=".ScanHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanDetailsActivity"
+            android:exported="false" />
 
         <activity
             android:name=".PatientRegistrationSuccessActivity"
             android:exported="false" />
 
         <activity
-            android:name=".DiagnosisModificationActivity"
+            android:name=".CaptureMethodActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".CameraCaptureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AiAnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanResultActivity"
+            android:exported="false" />
 
         <activity
             android:name=".ProcessingStudyActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".DiagnosisModificationActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AiChatActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ReviewScanActivity"
             android:exported="false" />
 
         <activity

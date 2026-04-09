@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 data class PatientHistoryItem(
     val name: String,
     val id: String,
+    val caseId: Int?, // Added caseId to track actual database id
     val details: String, // "Last scan: 2 weeks ago • Dr. Bennett"
     val tag1: String?,
     val tag2: String?
@@ -53,6 +54,9 @@ class PatientHistoryAdapter(private val patientList: List<PatientHistoryItem>) :
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = android.content.Intent(context, PatientDetailActivity::class.java)
+            if (item.caseId != null) {
+                intent.putExtra("CASE_ID", item.caseId)
+            }
             context.startActivity(intent)
         }
     }

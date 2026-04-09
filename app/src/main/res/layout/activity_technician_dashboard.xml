@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:background="@color/brand_blue"
+        android:background="#10B981"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Screen Title -->
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Technician Portal"
-        android:textColor="#B5CCF7"
+        android:textColor="#A7F3D0"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="@id/tv_dashboard_title"
         app:layout_constraintTop_toBottomOf="@id/tv_dashboard_title" />
@@ -45,7 +45,7 @@
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_marginEnd="24dp"
-        android:background="#1E293B"
+        android:background="#022C22"
         android:padding="12dp"
         android:src="@drawable/ic_person"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
@@ -71,7 +71,7 @@
             android:layout_height="96dp"
             android:layout_margin="6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#2563EB"
+            app:cardBackgroundColor="#10B981"
             app:cardCornerRadius="20dp"
             app:cardElevation="0dp">
             <LinearLayout
@@ -80,9 +80,10 @@
                 android:gravity="center"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/tv_stats_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="26sp"
                     android:textStyle="bold" />
@@ -90,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Today"
-                    android:textColor="#B5CCF7"
+                    android:textColor="@color/brand_green_light"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -102,7 +103,7 @@
             android:layout_height="96dp"
             android:layout_margin="6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#2563EB"
+            app:cardBackgroundColor="#10B981"
             app:cardCornerRadius="20dp"
             app:cardElevation="0dp">
             <LinearLayout
@@ -111,9 +112,10 @@
                 android:gravity="center"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/tv_stats_pending"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="26sp"
                     android:textStyle="bold" />
@@ -121,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pending"
-                    android:textColor="#B5CCF7"
+                    android:textColor="@color/brand_green_light"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -133,7 +135,7 @@
             android:layout_height="96dp"
             android:layout_margin="6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#2563EB"
+            app:cardBackgroundColor="#10B981"
             app:cardCornerRadius="20dp"
             app:cardElevation="0dp">
             <LinearLayout
@@ -142,9 +144,10 @@
                 android:gravity="center"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/tv_stats_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="247"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="26sp"
                     android:textStyle="bold" />
@@ -152,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total"
-                    android:textColor="#B5CCF7"
+                    android:textColor="@color/brand_green_light"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -164,7 +167,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintTop_toBottomOf="@id/header_bg">
 
         <LinearLayout
@@ -178,73 +181,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="QUICK ACTIONS"
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05"
                 android:layout_marginBottom="16dp"/>
 
-            <!-- 2x2 Grid -->
+            <!-- Grid Layout for Buttons -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
-                android:rowCount="2"
                 android:useDefaultMargins="false">
 
                 <!-- New Patient -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_new_patient"
                     android:layout_width="0dp"
-                    android:layout_height="150dp"
+                    android:layout_height="140dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="24dp"
-                    app:cardElevation="1dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <View
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            android:background="@drawable/bg_circle_blue_light"
-                            android:alpha="0.25"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="-43dp"
-                            android:src="@drawable/ic_person_add"
-                            app:tint="@color/brand_blue" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="New Patient"
-                            android:textColor="#1E293B"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Register"
-                            android:textColor="#94A3B8"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Start Scan -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_start_scan"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="1dp">
+                    app:cardElevation="2dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -254,188 +213,132 @@
                             android:layout_width="56dp"
                             android:layout_height="56dp"
                             android:background="@drawable/bg_circle_green_light"
-                            android:alpha="0.25"/>
+                            android:alpha="0.2"/>
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="-43dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="-42dp"
+                            android:src="@drawable/ic_person_add"
+                            app:tint="@color/brand_green" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="New Patient"
+                            android:textColor="#022C22"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Start Scan -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_start_scan"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="2dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <View
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_circle_green_light"
+                            android:alpha="0.2"/>
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="-42dp"
                             android:src="@drawable/ic_camera"
-                            app:tint="#10B981" />
+                            app:tint="@color/brand_green" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:text="Start Scan"
-                            android:textColor="#1E293B"
-                            android:textSize="16sp"
+                            android:textColor="#022C22"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="X-Ray"
-                            android:textColor="#94A3B8"
-                            android:textSize="12sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- History -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_history"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="1dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <View
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            android:background="@drawable/bg_circle_light_purple"
-                            android:alpha="0.25"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="-43dp"
-                            android:src="@drawable/ic_history"
-                            app:tint="@color/brand_purple" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="History"
-                            android:textColor="#1E293B"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View All"
-                            android:textColor="#94A3B8"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- AI Assistant -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_ai_chat"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="1dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <View
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            android:background="@drawable/bg_badge_light_blue"
-                            android:alpha="0.25"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="-43dp"
-                            android:src="@drawable/ic_chatbot"
-                            app:tint="@color/brand_blue" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="AI Assistant"
-                            android:textColor="#1E293B"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Cortex AI"
-                            android:textColor="#94A3B8"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <!-- Settings -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_settings"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="1dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <View
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            android:background="@drawable/bg_circle_light_orange"
-                            android:alpha="0.25"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="-43dp"
-                            android:src="@drawable/ic_settings"
-                            app:tint="#D97706" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="Settings"
-                            android:textColor="#1E293B"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Profile"
-                            android:textColor="#94A3B8"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
             </GridLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="RECENT SCANS"
-                android:textColor="#94A3B8"
+                android:textColor="#10B981"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="24dp"
+                android:letterSpacing="0.05"
+                android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"/>
 
-            <include layout="@layout/item_recent_scan" />
-            <include layout="@layout/item_recent_scan" />
+            <!-- Empty State for Scans -->
+            <LinearLayout
+                android:id="@+id/ll_scan_empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:background="@drawable/bg_card_white_rounded"
+                android:elevation="1dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_camera"
+                    app:tint="#CBD5E1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="No Recent Scans"
+                    android:textColor="#1E293B"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="You haven't performed any scans yet.\nTap 'Start Scan' to begin."
+                    android:textColor="#64748B"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <include android:id="@+id/recent_scan_1" layout="@layout/item_recent_scan" />
+            <include android:id="@+id/recent_scan_2" layout="@layout/item_recent_scan" />
 
         </LinearLayout>
     </ScrollView>
 
     <!-- Bottom Navigation Bar -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/white"
-        android:elevation="16dp"
+        android:layout_height="90dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
 
             <!-- Home -->
             <LinearLayout
@@ -443,18 +346,22 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:src="@drawable/ic_dashboard"
-                    app:tint="@color/brand_blue" />
+                    app:tint="#10B981" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="Home"
-                    android:textColor="@color/brand_blue"
+                    android:textColor="#10B981"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -465,16 +372,20 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:src="@drawable/ic_person_add"
                     app:tint="#94A3B8" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="Register"
                     android:textColor="#94A3B8"
                     android:textSize="12sp" />
@@ -486,16 +397,20 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:src="@drawable/ic_history"
                     app:tint="#94A3B8" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="History"
                     android:textColor="#94A3B8"
                     android:textSize="12sp" />
@@ -507,23 +422,28 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:clickable="false"
                     android:src="@drawable/ic_settings"
                     app:tint="#94A3B8" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:clickable="false"
                     android:text="Settings"
                     android:textColor="#94A3B8"
                     android:textSize="12sp" />
             </LinearLayout>
 
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

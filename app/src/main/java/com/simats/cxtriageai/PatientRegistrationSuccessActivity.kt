@@ -16,9 +16,9 @@ class PatientRegistrationSuccessActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_patient_registration_success)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btn_back)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.header_container)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(0, systemBars.top, 0, 0)
             insets
         }
 
@@ -27,14 +27,14 @@ class PatientRegistrationSuccessActivity : AppCompatActivity() {
         val dob = intent.getStringExtra("PATIENT_DOB") ?: "N/A"
         val mrn = intent.getStringExtra("PATIENT_MRN") ?: "N/A"
         val gender = intent.getStringExtra("PATIENT_GENDER") ?: "N/A"
-        val patientId = "PAT-${(1000..9999).random()}" // Simulated ID for now
+        val patientId = intent.getIntExtra("PATIENT_ID", -1)
 
         // Set Data
         findViewById<TextView>(R.id.tv_display_name).text = name
         findViewById<TextView>(R.id.tv_display_dob).text = dob
         findViewById<TextView>(R.id.tv_display_mrn).text = mrn
         findViewById<TextView>(R.id.tv_display_gender).text = gender
-        findViewById<TextView>(R.id.tv_display_patient_id).text = patientId
+        findViewById<TextView>(R.id.tv_display_patient_id).text = patientId.toString()
 
         // Click Listeners
         findViewById<ImageView>(R.id.btn_back).setOnClickListener {
@@ -43,6 +43,7 @@ class PatientRegistrationSuccessActivity : AppCompatActivity() {
 
         findViewById<AppCompatButton>(R.id.btn_start_xray).setOnClickListener {
             val intent = Intent(this, PrepareProcedureActivity::class.java)
+            intent.putExtra("PATIENT_ID", patientId)
             intent.putExtra("PATIENT_NAME", name)
             intent.putExtra("PATIENT_DOB", dob)
             intent.putExtra("PATIENT_MRN", mrn)

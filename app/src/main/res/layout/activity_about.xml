@@ -8,19 +8,19 @@
     android:background="#F8FAFC"
     tools:context=".AboutActivity">
 
-    <!-- Header Section -->
+    <!-- Header -->
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/brand_blue"
+        android:layout_height="110dp"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="48dp"
+        android:paddingTop="52dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -28,7 +28,6 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="16dp"
             android:src="@drawable/ic_arrow_back_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,11 +48,9 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Content -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_bg">
 
@@ -62,25 +59,30 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingHorizontal="24dp"
-            android:paddingTop="32dp"
-            android:paddingBottom="40dp">
+            android:padding="24dp">
 
-            <!-- App Logo & Name -->
-            <ImageView
+            <!-- App Logo Section -->
+            <FrameLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/bg_about_logo"
-                android:padding="20dp"
-                android:src="@drawable/ic_pulse_heart_white" />
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_button_rounded_green"
+                android:elevation="4dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_pulse_logo"
+                    app:tint="@color/white" />
+            </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="CXRT AI"
-                android:textColor="#1E293B"
-                android:textSize="26sp"
+                android:textColor="#022C22"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -89,16 +91,16 @@
                 android:layout_marginTop="4dp"
                 android:text="Chest X-Ray Triage System"
                 android:textColor="#64748B"
-                android:textSize="14sp" />
+                android:textSize="15sp" />
 
-            <!-- Version Information Section -->
+            <!-- Version Info Card -->
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="12dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="36dp"
                 android:text="VERSION INFORMATION"
-                android:textColor="#94A3B8"
+                android:textColor="@color/brand_green"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
@@ -106,22 +108,19 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="1dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="4dp">
+                    android:paddingHorizontal="20dp">
 
-                    <!-- Version Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:gravity="center_vertical">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -138,14 +137,12 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" />
 
-                    <!-- Build Number Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:gravity="center_vertical">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -162,14 +159,12 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" />
 
-                    <!-- Last Updated Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:gravity="center_vertical">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -186,14 +181,12 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" />
 
-                    <!-- AI Model Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:gravity="center_vertical">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -215,12 +208,12 @@
 
             <!-- Application Section -->
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="start"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="12dp"
                 android:text="APPLICATION"
-                android:textColor="#94A3B8"
+                android:textColor="@color/brand_green"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
@@ -228,29 +221,28 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="1dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="4dp">
+                    android:paddingHorizontal="20dp">
 
-                    <!-- Terms of Service Row -->
                     <LinearLayout
                         android:id="@+id/btn_terms"
                         android:layout_width="match_parent"
                         android:layout_height="64dp"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_document"
-                            app:tint="@color/brand_blue" />
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_description"
+                            app:tint="@color/brand_green" />
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -258,29 +250,30 @@
                             android:layout_weight="1"
                             android:text="Terms of Service"
                             android:textColor="#1E293B"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#CBD5E1" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" />
 
-                    <!-- Privacy Policy Row -->
                     <LinearLayout
                         android:id="@+id/btn_privacy"
                         android:layout_width="match_parent"
                         android:layout_height="64dp"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_shield"
-                            app:tint="@color/brand_blue" />
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_privacy"
+                            app:tint="@color/brand_green" />
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -288,29 +281,30 @@
                             android:layout_weight="1"
                             android:text="Privacy Policy"
                             android:textColor="#1E293B"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#CBD5E1" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" />
 
-                    <!-- Open Source Row -->
                     <LinearLayout
                         android:id="@+id/btn_licenses"
                         android:layout_width="match_parent"
                         android:layout_height="64dp"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_document"
-                            app:tint="@color/brand_blue" />
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_id_card"
+                            app:tint="@color/brand_green" />
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -318,10 +312,11 @@
                             android:layout_weight="1"
                             android:text="Open Source Licenses"
                             android:textColor="#1E293B"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#CBD5E1" />
                     </LinearLayout>
@@ -329,18 +324,17 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Footer -->
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="24dp"
                 android:gravity="center"
                 android:text="© 2026 CXRT AI Healthcare Solutions\nAll rights reserved. HIPAA Compliant."
                 android:textColor="#94A3B8"
-                android:textSize="13sp"
-                android:lineSpacingExtra="4dp"/>
+                android:textSize="13sp" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

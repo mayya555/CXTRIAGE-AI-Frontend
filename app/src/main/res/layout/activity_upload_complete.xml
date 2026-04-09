@@ -5,221 +5,226 @@
     android:id="@+id/upload_complete_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="#FFFFFF"
     tools:context=".UploadCompleteActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <!-- Header -->
+    <View
+        android:id="@+id/header_bg"
         android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#0D9488"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_header_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#0F172A"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Upload Complete"
-            app:titleTextColor="@color/white" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:text="Processing Study.."
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appbar">
+        app:layout_constraintTop_toBottomOf="@id/header_bg">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
 
+            <!-- Circular Progress Icon -->
             <FrameLayout
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:layout_marginTop="24dp">
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="40dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_circle_green_light"
+                    android:alpha="0.1" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/bg_circle_green_light"
-                    android:alpha="0.2"/>
+                    android:padding="4dp"
+                    android:src="@drawable/ic_upload_complete_progress" />
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_check_circle_green" />
+                    android:src="@drawable/ic_check"
+                    app:tint="#0D9488" />
             </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Study Forwarded"
-                android:textColor="#0F172A"
-                android:textSize="26sp"
+                android:layout_marginTop="32dp"
+                android:text="Upload Complete"
+                android:textColor="#1F2937"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="#F1F5F9"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#F8FAFC"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="0dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
                     android:text="SESSION ID: 8821-XP-SAFE"
-                    android:textColor="#475569"
+                    android:textColor="#64748B"
+                    android:textSize="12sp"
                     android:textStyle="bold"
-                    android:textSize="13sp" />
+                    android:fontFamily="monospace" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Status Cards Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="16dp"
-                android:text="Processing Status"
-                android:textColor="#64748B"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.1"/>
-
-            <!-- PACS Card -->
+            <!-- Status Cards -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/white"
+                android:layout_marginTop="48dp"
+                app:cardBackgroundColor="#F0FDF4"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
+                app:contentPadding="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_pacs_archive"
-                        app:tint="#4F46E5" />
+                        app:tint="#065F46" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
                         android:text="PACS Archive"
-                        android:textColor="#0F172A"
-                        android:textSize="16sp" />
+                        android:textColor="#065F46"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_check_circle_green" />
+                        android:src="@drawable/ic_check"
+                        app:tint="#10B981" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- RIS Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/white"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#F0FDF4"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_ris_worklist"
-                        app:tint="#4F46E5" />
+                        app:tint="#1E40AF" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
                         android:text="RIS Worklist"
-                        android:textColor="#0F172A"
-                        android:textSize="16sp" />
+                        android:textColor="#1E40AF"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_check_circle_green" />
+                        android:src="@drawable/ic_check"
+                        app:tint="#3B82F6" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- AI Status Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/white"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FAF5FF"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_ai_analysis"
-                        app:tint="#4F46E5" />
+                        app:tint="#6B21A8" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Quality Check"
-                        android:textColor="#0F172A"
-                        android:textSize="16sp" />
+                        android:text="AI Analysis"
+                        android:textColor="#6B21A8"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="PASSED"
-                        android:textColor="#16A34A"
-                        android:textStyle="bold"
-                        android:textSize="12sp"
-                        android:background="#DCFCE7"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="4dp"/>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_check"
+                        app:tint="#A855F7" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_done"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/bg_button_dark_blue"
+                android:layout_height="60dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_button_rounded_green"
                 android:text="Complete &amp; Return"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

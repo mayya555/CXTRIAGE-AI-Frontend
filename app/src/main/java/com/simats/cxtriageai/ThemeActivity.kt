@@ -91,40 +91,40 @@ class ThemeActivity : AppCompatActivity() {
 
     private fun updateCheckmarks(theme: String?) {
         // Reset all
-        containerLight.setBackgroundResource(R.drawable.bg_theme_card_unselected)
-        containerDark.setBackgroundResource(R.drawable.bg_theme_card_unselected)
-        containerSystem.setBackgroundResource(R.drawable.bg_theme_card_unselected)
+        findViewById<LinearLayout>(R.id.card_light).setBackgroundResource(R.drawable.bg_theme_card_unselected)
+        findViewById<LinearLayout>(R.id.card_dark).setBackgroundResource(R.drawable.bg_theme_card_unselected)
+        findViewById<LinearLayout>(R.id.card_system).setBackgroundResource(R.drawable.bg_theme_card_unselected)
         
         ivCheckLight.visibility = View.GONE
         ivCheckDark.visibility = View.GONE
         ivCheckSystem.visibility = View.GONE
 
-        tvLabelLight.setTextColor(android.graphics.Color.parseColor("#64748B"))
-        tvLabelDark.setTextColor(android.graphics.Color.parseColor("#64748B"))
-        tvLabelSystem.setTextColor(android.graphics.Color.parseColor("#64748B"))
+        tvLabelLight.setTextColor(android.graphics.Color.parseColor("#334155"))
+        tvLabelDark.setTextColor(android.graphics.Color.parseColor("#334155"))
+        tvLabelSystem.setTextColor(android.graphics.Color.parseColor("#334155"))
         tvLabelLight.setTypeface(null, android.graphics.Typeface.NORMAL)
         tvLabelDark.setTypeface(null, android.graphics.Typeface.NORMAL)
         tvLabelSystem.setTypeface(null, android.graphics.Typeface.NORMAL)
 
-        val tealColor = android.graphics.Color.parseColor("#0F766E")
+        val brandTeal = android.graphics.Color.parseColor("#0F766E")
 
         when (theme) {
             "light" -> {
-                containerLight.setBackgroundResource(R.drawable.bg_theme_card_selected)
+                findViewById<LinearLayout>(R.id.card_light).setBackgroundResource(R.drawable.bg_theme_card_selected)
                 ivCheckLight.visibility = View.VISIBLE
-                tvLabelLight.setTextColor(tealColor)
+                tvLabelLight.setTextColor(brandTeal)
                 tvLabelLight.setTypeface(null, android.graphics.Typeface.BOLD)
             }
             "dark" -> {
-                containerDark.setBackgroundResource(R.drawable.bg_theme_card_selected)
+                findViewById<LinearLayout>(R.id.card_dark).setBackgroundResource(R.drawable.bg_theme_card_selected)
                 ivCheckDark.visibility = View.VISIBLE
-                tvLabelDark.setTextColor(tealColor)
+                tvLabelDark.setTextColor(brandTeal)
                 tvLabelDark.setTypeface(null, android.graphics.Typeface.BOLD)
             }
             "system" -> {
-                containerSystem.setBackgroundResource(R.drawable.bg_theme_card_selected)
+                findViewById<LinearLayout>(R.id.card_system).setBackgroundResource(R.drawable.bg_theme_card_selected)
                 ivCheckSystem.visibility = View.VISIBLE
-                tvLabelSystem.setTextColor(tealColor)
+                tvLabelSystem.setTextColor(brandTeal)
                 tvLabelSystem.setTypeface(null, android.graphics.Typeface.BOLD)
             }
         }

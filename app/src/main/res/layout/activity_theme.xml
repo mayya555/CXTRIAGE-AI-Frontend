@@ -12,23 +12,22 @@
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/brand_teal"
+        android:layout_height="80dp"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:padding="12dp"
             android:src="@drawable/ic_arrow_back_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,174 +37,177 @@
             android:id="@+id/tv_header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="App Appearance"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="normal"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_back"
             app:layout_constraintStart_toEndOf="@id/iv_back"
             app:layout_constraintTop_toTopOf="@id/iv_back" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/header_bg"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_bg">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="20dp">
 
+            <!-- Light Mode Selection -->
             <LinearLayout
+                android:id="@+id/card_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_theme_card_selected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:padding="16dp">
 
-                <!-- Light Theme Card -->
-                <LinearLayout
-                    android:id="@+id/card_light"
+                <FrameLayout
+                    android:id="@+id/container_light"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_rounded_rectangle_8"
+                    android:padding="4dp">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:elevation="2dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_label_light"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:text="Light"
+                    android:textColor="@color/brand_teal"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                    <FrameLayout
-                        android:id="@+id/container_light"
+                <ImageView
+                    android:id="@+id/iv_check_light"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_check_circle_green"
+                    app:tint="@color/brand_green"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <!-- Dark Mode Selection -->
+            <LinearLayout
+                android:id="@+id/card_dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_theme_card_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:id="@+id/container_dark"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_rounded_rectangle_8"
+                    android:padding="4dp">
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:layout_marginHorizontal="6dp"
-                        android:background="@drawable/bg_theme_card_selected"
-                        android:padding="12dp">
+                        android:layout_height="match_parent"
+                        android:background="#1E293B"
+                        android:elevation="2dp" />
+                </FrameLayout>
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/img_theme_light_preview" />
-
-                        <ImageView
-                            android:id="@+id/iv_check_light"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="top|end"
-                            android:src="@drawable/ic_check_circle_green"
-                            android:visibility="visible" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:id="@+id/tv_label_light"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Light"
-                        android:textColor="@color/brand_teal"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- Dark Theme Card -->
-                <LinearLayout
-                    android:id="@+id/card_dark"
+                <TextView
+                    android:id="@+id/tv_label_dark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:text="Dark"
+                    android:textColor="#334155"
+                    android:textSize="18sp" />
 
-                    <FrameLayout
-                        android:id="@+id/container_dark"
+                <ImageView
+                    android:id="@+id/iv_check_dark"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_check_circle_green"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- System Mode Selection -->
+            <LinearLayout
+                android:id="@+id/card_system"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_theme_card_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:id="@+id/container_system"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_rounded_rectangle_8"
+                    android:padding="4dp">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:layout_marginHorizontal="6dp"
-                        android:background="@drawable/bg_theme_card_unselected"
-                        android:padding="12dp">
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:elevation="2dp">
+                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/white"/>
+                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#1E293B"/>
+                    </LinearLayout>
+                </FrameLayout>
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/img_theme_dark_preview" />
-
-                        <ImageView
-                            android:id="@+id/iv_check_dark"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="top|end"
-                            android:src="@drawable/ic_check_circle_green"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:id="@+id/tv_label_dark"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Dark"
-                        android:textColor="#64748B"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- System Theme Card -->
-                <LinearLayout
-                    android:id="@+id/card_system"
+                <TextView
+                    android:id="@+id/tv_label_system"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:text="System"
+                    android:textColor="#334155"
+                    android:textSize="18sp" />
 
-                    <FrameLayout
-                        android:id="@+id/container_system"
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:layout_marginHorizontal="6dp"
-                        android:background="@drawable/bg_theme_card_unselected"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/img_theme_system_preview" />
-
-                        <ImageView
-                            android:id="@+id/iv_check_system"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="top|end"
-                            android:src="@drawable/ic_check_circle_green"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:id="@+id/tv_label_system"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="System"
-                        android:textColor="#64748B"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
+                <ImageView
+                    android:id="@+id/iv_check_system"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_check_circle_green"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <!-- Info Box -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/bg_info_box"
+                android:background="@drawable/bg_badge_light_green"
                 android:orientation="horizontal"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_info"
-                    app:tint="#2563EB" />
+                    app:tint="@color/brand_green" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -218,23 +220,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dark Mode Recommended"
-                        android:textColor="#1E40AF"
+                        android:textColor="@color/brand_green_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Radiology reading rooms are typically dimly lit. Dark mode helps maintain visual acuity and reduces eye strain during diagnosis."
-                        android:textColor="#1E40AF"
-                        android:textSize="13sp"
-                        android:lineHeight="18sp"
+                        android:layout_marginTop="6dp"
+                        android:text="Dark mode helps maintain visual clarity and reduces eye strain during diagnostic imaging reviews."
+                        android:textColor="#064E3B"
+                        android:textSize="14sp"
+                        android:lineHeight="20sp"
                         android:alpha="0.8" />
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

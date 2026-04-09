@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Top Priority Border Line -->
+        <View
+            android:id="@+id/view_top_border"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#EF4444"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/view_top_border">
+
+            <!-- Thumbnail Image -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_thumbnail"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_xray_sample" />
+
+                <ImageView
+                    android:id="@+id/iv_alert_overlay"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="2dp"
+                    android:src="@drawable/ic_warning_red"
+                    android:visibility="visible" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Patient Name -->
+            <TextView
+                android:id="@+id/tv_patient_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Patient Name"
+                android:textColor="#1E293B"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/tv_wait_time"
+                app:layout_constraintStart_toEndOf="@id/card_thumbnail"
+                app:layout_constraintTop_toTopOf="@id/card_thumbnail" />
+
+            <!-- Wait Time -->
+            <TextView
+                android:id="@+id/tv_wait_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12m"
+                android:textColor="#94A3B8"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_patient_name"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Priority Badge -->
+            <TextView
+                android:id="@+id/tv_priority_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_rectangle_8"
+                android:backgroundTint="#FEE2E2"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="CRITICAL"
+                android:textColor="#EF4444"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv_patient_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_patient_name" />
+
+            <!-- AI Result -->
+            <TextView
+                android:id="@+id/tv_ai_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Pneumothorax"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_priority_badge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_priority_badge"
+                app:layout_constraintTop_toTopOf="@id/tv_priority_badge" />
+
+            <!-- Thick Progress Bar at Bottom -->
+            <ProgressBar
+                android:id="@+id/status_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:progress="100"
+                android:progressDrawable="@drawable/progress_critical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_patient_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_ai_result" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

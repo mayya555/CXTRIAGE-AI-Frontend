@@ -3,90 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
+    android:layout_marginBottom="16dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="24dp"
-    app:cardElevation="1dp">
+    app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Profile Placeholder -->
-        <View
-            android:id="@+id/view_profile_bg"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_badge_light_gray"
+        <!-- Profile Placeholder Container -->
+        <FrameLayout
+            android:id="@+id/fl_profile_container"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_person"
-            app:tint="#64748B"
-            app:layout_constraintStart_toStartOf="@id/view_profile_bg"
-            app:layout_constraintEnd_toEndOf="@id/view_profile_bg"
-            app:layout_constraintTop_toTopOf="@id/view_profile_bg"
-            app:layout_constraintBottom_toBottomOf="@id/view_profile_bg" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.08"
+                android:background="@drawable/bg_circle_green" />
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/brand_green" />
+        </FrameLayout>
 
         <!-- Patient Info -->
-        <TextView
-            android:id="@+id/tv_patient_name"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Sarah Wilson"
-            android:textColor="#1E293B"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/view_profile_bg"
-            app:layout_constraintEnd_toStartOf="@id/tv_status"
-            app:layout_constraintTop_toTopOf="@id/view_profile_bg"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintBottom_toTopOf="@id/tv_mrn"/>
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/fl_profile_container"
+            app:layout_constraintEnd_toStartOf="@id/ll_status_container"
+            app:layout_constraintStart_toEndOf="@id/fl_profile_container"
+            app:layout_constraintTop_toTopOf="@id/fl_profile_container">
 
-        <TextView
-            android:id="@+id/tv_mrn"
+            <TextView
+                android:id="@+id/tv_patient_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sarah Wilson"
+                android:textColor="#022C22"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_mrn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="MRN-4521"
+                android:textColor="#64748B"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Status Container -->
+        <LinearLayout
+            android:id="@+id/ll_status_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MRN-4521"
-            android:textColor="#94A3B8"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/tv_patient_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_patient_name"
-            app:layout_constraintBottom_toBottomOf="@id/view_profile_bg"/>
-
-        <!-- Status Badge -->
-        <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_badge_light_orange"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="6dp"
-            android:text="Processing"
-            android:textColor="#D97706"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:gravity="end"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view_profile_bg" />
+            app:layout_constraintTop_toTopOf="@id/fl_profile_container">
 
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="10 min ago"
-            android:textColor="#94A3B8"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_status" />
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_light_orange"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:text="Processing"
+                android:textColor="#B45309"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="10 min ago"
+                android:textColor="#94A3B8"
+                android:textSize="12sp" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

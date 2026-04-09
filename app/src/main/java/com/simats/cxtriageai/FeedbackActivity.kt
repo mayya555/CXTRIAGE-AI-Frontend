@@ -97,25 +97,66 @@ class FeedbackActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Simulate submission
-            Toast.makeText(this, "Feedback submitted successfully!", Toast.LENGTH_LONG).show()
-            finish()
+            // Start backend submission
+            btnSubmit.isEnabled = false
+            btnSubmit.text = "Submitting..."
+
+            val prefs = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE)
+            val technicianId = prefs.getInt("technician_id", -1)
+            val feedbackType = if (isGeneralSelected) "GENERAL" else "COMPLAINT"
+
+            if (technicianId == -1) {
+                Toast.makeText(this, "Technician ID not found", Toast.LENGTH_SHORT).show()
+                btnSubmit.isEnabled = true
+                btnSubmit.text = "Submit"
+                return@setOnClickListener
+            }
+
+            val request = FeedbackRequest(
+                technicianId = technicianId,
+                feedbackType = feedbackType,
+                subject = subject,
+                description = description
+            )
+
+            ApiClient.apiService.sendFeedback(request).enqueue(object : retrofit2.Callback<FeedbackResponse> {
+                override fun onResponse(call: retrofit2.Call<FeedbackResponse>, response: retrofit2.Response<FeedbackResponse>) {
+                    btnSubmit.isEnabled = true
+                    btnSubmit.text = "Submit"
+                    
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@FeedbackActivity, "Feedback submitted successfully!", Toast.LENGTH_LONG).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this@FeedbackActivity, "Failed to submit feedback", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: retrofit2.Call<FeedbackResponse>, t: Throwable) {
+                    btnSubmit.isEnabled = true
+                    btnSubmit.text = "Submit"
+                    Toast.makeText(this@FeedbackActivity, "Network Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
     }
 
     private fun updateTabs(tabGeneral: TextView, tabComplaint: TextView) {
+        val darkSlate = android.graphics.Color.parseColor("#1E293B")
+        val slateGray = android.graphics.Color.parseColor("#64748B")
+
         if (isGeneralSelected) {
-            tabGeneral.isSelected = true
-            tabGeneral.setTextColor(ContextCompat.getColor(this, R.color.text_dark))
+            tabGeneral.setBackgroundResource(R.drawable.bg_toggle_tab)
+            tabGeneral.setTextColor(darkSlate)
             
-            tabComplaint.isSelected = false
-            tabComplaint.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
+            tabComplaint.setBackgroundResource(0)
+            tabComplaint.setTextColor(slateGray)
         } else {
-            tabGeneral.isSelected = false
-            tabGeneral.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
+            tabGeneral.setBackgroundResource(0)
+            tabGeneral.setTextColor(slateGray)
             
-            tabComplaint.isSelected = true
-            tabComplaint.setTextColor(ContextCompat.getColor(this, R.color.text_dark))
+            tabComplaint.setBackgroundResource(R.drawable.bg_toggle_tab)
+            tabComplaint.setTextColor(darkSlate)
         }
     }
 }

@@ -13,7 +13,7 @@
         android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#3B32D1"
+        android:background="#064E3B"
         android:padding="16dp"
         android:gravity="center_vertical"
         app:layout_constraintTop_toTopOf="parent">
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="AI Suggested Diagnosis"
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="14sp"
                 android:layout_marginBottom="8dp"/>
 
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Revised Diagnosis"
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="14sp"
                 android:layout_marginBottom="8dp"/>
 
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Reason for Modification"
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="14sp"
                 android:layout_marginBottom="8dp"/>
 
@@ -115,7 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_margin="24dp"
-        android:background="@drawable/bg_button_blue"
+        android:background="@drawable/bg_button_green"
         android:text="Save &amp; Continue"
         android:textAllCaps="false"
         android:textColor="@color/white"

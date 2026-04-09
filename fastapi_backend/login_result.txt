@@ -1,0 +1,2 @@
+Status: 422
+Body: {"detail":[{"type":"missing","loc":["body","hospital_email"],"msg":"Field required","input":{"email":"test@doctor.com","password":"Test@123"}}]}

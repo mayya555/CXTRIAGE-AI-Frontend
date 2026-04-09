@@ -1,0 +1,2 @@
+200
+[{"patient_id":29,"ai_confidence":52,"signed_by":null,"id":20,"final_diagnosis":null,"created_at":"2026-03-27T05:19:16","patient_name":"anju Reddy","doctor_id":11,"reviewed_at":null,"patient_age":0,"doctor_notes":null,"case_code":"SC-5520","diagnosis":"Normal","decision":"PENDING","ai_result":"Normal","priority":"ROUTINE","status":"PENDING","image_url":"uploaded_scans/scan_30.jpg","report_id":null,"ai_findings":"Detected Normal","finalized":false}]

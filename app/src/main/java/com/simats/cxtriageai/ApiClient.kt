@@ -4,9 +4,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    // Use 10.0.2.2 for the Android emulator
-    // Use your machine's local IP address for a physical device
-    private const val BASE_URL = "http://10.136.52.10:8000"
+    // 10.0.2.2 for Emulator, Local Machine IP (e.g. 192.168.x.x) for Physical Device
+    const val BASE_URL = "http://180.235.121.245:8033/"
+    const val GET_STATIC_URL = "${BASE_URL}static/"
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()

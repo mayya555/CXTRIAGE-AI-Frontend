@@ -19,7 +19,7 @@
                 android:thickness="12dp"
                 android:useLevel="true">
                 <gradient
-                    android:endColor="#00897B"
+                    android:endColor="@color/brand_green"
                     android:startColor="#4DB6AC"
                     android:type="sweep"
                     android:useLevel="false" />

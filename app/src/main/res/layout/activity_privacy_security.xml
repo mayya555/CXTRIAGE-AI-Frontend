@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#0F766E"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,7 +77,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_shield_teal" />
+                    android:src="@drawable/ic_shield_check" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -140,7 +140,7 @@
                             app:layout_constraintEnd_toEndOf="@id/icon_analytics_bg"
                             app:layout_constraintTop_toTopOf="@id/icon_analytics_bg"
                             app:layout_constraintBottom_toBottomOf="@id/icon_analytics_bg"
-                            app:tint="#64748B"/>
+                            app:tint="#047857"/>
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -156,7 +156,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Usage Analytics"
-                                android:textColor="#1E293B"
+                                android:textColor="#022C22"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Help improve the app"
-                                android:textColor="#64748B"
+                                android:textColor="#047857"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -208,7 +208,7 @@
                             app:layout_constraintEnd_toEndOf="@id/icon_status_bg"
                             app:layout_constraintTop_toTopOf="@id/icon_status_bg"
                             app:layout_constraintBottom_toBottomOf="@id/icon_status_bg"
-                            app:tint="#64748B"/>
+                            app:tint="#047857"/>
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -224,7 +224,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Show Status"
-                                android:textColor="#1E293B"
+                                android:textColor="#022C22"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -232,7 +232,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Visible to other staff"
-                                android:textColor="#64748B"
+                                android:textColor="#047857"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -276,7 +276,7 @@
                             app:layout_constraintEnd_toEndOf="@id/icon_biometric_bg"
                             app:layout_constraintTop_toTopOf="@id/icon_biometric_bg"
                             app:layout_constraintBottom_toBottomOf="@id/icon_biometric_bg"
-                            app:tint="#64748B"/>
+                            app:tint="#047857"/>
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -292,7 +292,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Biometric Login"
-                                android:textColor="#1E293B"
+                                android:textColor="#022C22"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -300,7 +300,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="FaceID / TouchID"
-                                android:textColor="#64748B"
+                                android:textColor="#047857"
                                 android:textSize="13sp" />
                         </LinearLayout>
 

@@ -22,7 +22,7 @@ class HelpSupportActivity : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.help_support_root)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             findViewById<android.view.View>(R.id.header_container).setPadding(0, systemBars.top, 0, 0)
-            v.setPadding(0, 0, 0, systemBars.bottom)
+            v.setPadding(0, 0, 0, 0) // Padding handled by NestedScrollView content
             insets
         }
 

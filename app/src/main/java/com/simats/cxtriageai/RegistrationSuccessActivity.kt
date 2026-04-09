@@ -23,12 +23,8 @@ class RegistrationSuccessActivity : AppCompatActivity() {
         val role = intent.getStringExtra("ROLE") ?: "Doctor" // Retrieve the role
 
         findViewById<Button>(R.id.btn_go_to_login).setOnClickListener {
-            val intent: Intent
-            if (role == "Technician") {
-                intent = Intent(this, TechnicianDashboardActivity::class.java)
-            } else {
-                intent = Intent(this, LoginActivity::class.java)
-            }
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.putExtra("ROLE", role)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()

@@ -2,6 +2,7 @@ package com.simats.cxtriageai
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -32,8 +33,162 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        val role = intent.getStringExtra("ROLE") ?: "Doctor"
-        
+        val currentRole = intent.getStringExtra("ROLE") ?: "Doctor"
+        updateUIForRole(currentRole)
+
+        findViewById<TextView>(R.id.tv_create_account).setOnClickListener {
+            val intent = Intent(this, CreateAccountActivity::class.java)
+            intent.putExtra("ROLE", currentRole)
+            startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.btn_create_technician_account).setOnClickListener {
+            val intent = Intent(this, CreateAccountActivity::class.java)
+            intent.putExtra("ROLE", "Technician")
+            startActivity(intent)
+        }
+
+        findViewById<TextView>(R.id.tv_forgot_password).setOnClickListener {
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            intent.putExtra("USER_ROLE", currentRole)
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.iv_back_arrow).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        val etUsername = findViewById<EditText>(R.id.et_username)
+        val btnSignIn = findViewById<Button>(R.id.btn_sign_in)
+
+        btnSignIn.setOnClickListener {
+            val username = etUsername.text.toString().trim()
+            val password = findViewById<EditText>(R.id.et_password).text.toString().trim()
+
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+                etUsername.error = "Please enter a valid email address"
+                Toast.makeText(this, "Invalid email address", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!isPasswordValid(password)) {
+                Toast.makeText(this, "Invalid Password: Must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one symbol.", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            btnSignIn.isEnabled = false
+            btnSignIn.text = "Signing In..."
+
+            if (currentRole == "Technician") {
+                val request = TechnicianLoginRequest(username, password)
+                ApiClient.apiService.technicianLogin(request)
+                    .enqueue(object : Callback<LoginResponse> {
+                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                            btnSignIn.isEnabled = true
+                            btnSignIn.text = "Secure Login"
+
+                            if (response.isSuccessful && response.body() != null) {
+                                val body = response.body()!!
+                                Toast.makeText(this@LoginActivity, body.message, Toast.LENGTH_SHORT).show()
+
+                                val technician = body.technician
+                                val techId = technician?.id
+                                val techName = technician?.name ?: ""
+
+                                if (techId != null && techId != -1) {
+                                    SessionManager.clearUserData(this@LoginActivity)
+                                    val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                                    prefs.edit().apply {
+                                        putInt("technician_id", techId)
+                                        putString("technician_name", techName)
+                                        putString("technician_email", username)
+                                        putString("user_role", "technician")
+                                        apply()
+                                    }
+                                    startActivity(Intent(this@LoginActivity, TechnicianDashboardActivity::class.java))
+                                    finish()
+                                } else {
+                                    Toast.makeText(this@LoginActivity, "Login failed: No Technician ID", Toast.LENGTH_LONG).show()
+                                }
+                            } else {
+                                Toast.makeText(this@LoginActivity, "Invalid Technician Credentials", Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                            btnSignIn.isEnabled = true
+                            btnSignIn.text = "Secure Login"
+                            Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+            } else {
+                val request = DoctorLoginRequest(username, password)
+                ApiClient.apiService.doctorLogin(request)
+                    .enqueue(object : Callback<LoginResponse> {
+                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                            btnSignIn.isEnabled = true
+                            btnSignIn.text = "Sign In"
+
+                            if (response.isSuccessful && response.body() != null) {
+                                val body = response.body()!!
+                                val rawJson = Gson().toJson(body)
+                                android.util.Log.d("LOGIN_DEBUG", "Success Response Raw: $rawJson")
+                                Toast.makeText(this@LoginActivity, body.message, Toast.LENGTH_SHORT).show()
+
+                                // Use top-level fields from LoginResponse
+                                val doctor = body.doctor
+                                val doctorId = body.doctor?.doctor_id
+                                val doctorName = doctor?.name ?: ""
+
+                                if (doctorId != null && doctorId > 0) {
+                                    SessionManager.clearUserData(this@LoginActivity)
+                                    val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                                    prefs.edit().apply {
+                                        putInt("doctor_id", doctorId)
+                                        putString("doctor_name", doctorName)
+                                        putString("doctor_email", username)
+                                        putString("user_role", "doctor")
+                                        apply()
+                                    }
+                                    startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                                    finish()
+                                } else {
+                                    Toast.makeText(this@LoginActivity, "Login failed: Invalid Doctor ID ($doctorId) from server", Toast.LENGTH_LONG).show()
+                                    Log.e("LOGIN_DEBUG", "Invalid doctor_id received: $doctorId")
+                                }
+                            } else {
+                                val errorBodyString = response.errorBody()?.string()
+                                val errorDetail = try {
+                                    if (errorBodyString != null && errorBodyString.contains("detail")) {
+                                        val gson = Gson()
+                                        val errorJson = gson.fromJson(errorBodyString, Map::class.java)
+                                        errorJson["detail"]?.toString()
+                                    } else {
+                                        "Invalid Doctor Credentials"
+                                    }
+                                } catch (e: Exception) {
+                                    "Error: ${response.code()}"
+                                }
+                                Toast.makeText(this@LoginActivity, errorDetail, Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                            btnSignIn.isEnabled = true
+                            btnSignIn.text = "Sign In"
+                            Toast.makeText(this@LoginActivity, "Network Error: ${t.message}", Toast.LENGTH_LONG).show()
+                        }
+                    })
+            }
+        }
+    }
+
+    private fun updateUIForRole(role: String) {
         val headerTitle = findViewById<TextView>(R.id.tv_header_title)
         val loginIcon = findViewById<ImageView>(R.id.iv_login_icon)
         val tvWelcome = findViewById<TextView>(R.id.tv_welcome)
@@ -68,167 +223,14 @@ class LoginActivity : AppCompatActivity() {
             llDoctorRegister.visibility = android.view.View.VISIBLE
             llTechnicianRegister.visibility = android.view.View.GONE
         }
+    }
 
-        findViewById<TextView>(R.id.tv_create_account).setOnClickListener {
-            val intent = Intent(this, CreateAccountActivity::class.java)
-            intent.putExtra("ROLE", "Doctor")
-            startActivity(intent)
-        }
-
-        findViewById<Button>(R.id.btn_create_technician_account).setOnClickListener {
-            val intent = Intent(this, CreateAccountActivity::class.java)
-            intent.putExtra("ROLE", "Technician")
-            startActivity(intent)
-        }
-
-        findViewById<TextView>(R.id.tv_forgot_password).setOnClickListener {
-            val intent = Intent(this, ResetPasswordActivity::class.java)
-            intent.putExtra("USER_ROLE", role)
-            startActivity(intent)
-        }
-
-        findViewById<Button>(R.id.btn_sign_in).setOnClickListener {
-            val username = etUsername.text.toString().trim()
-            val password = findViewById<EditText>(R.id.et_password).text.toString().trim()
-
-            if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            btnSignIn.isEnabled = false
-            btnSignIn.text = "Signing In..."
-
-            if (role == "Technician") {
-
-                val request = TechnicianLoginRequest(username, password)
-
-                ApiClient.apiService.technicianLogin(request)
-                    .enqueue(object : Callback<LoginResponse> {
-
-                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-
-                            btnSignIn.isEnabled = true
-                            btnSignIn.text = "Secure Login"
-
-                            if (response.isSuccessful && response.body() != null) {
-
-                                Toast.makeText(
-                                    this@LoginActivity,
-                                    response.body()!!.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
-                                val intent = Intent(this@LoginActivity, TermsPrivacyActivity::class.java)
-                                intent.putExtra("ROLE", "Technician")
-                                startActivity(intent)
-                                finish()
-
-                            } else {
-
-                                Toast.makeText(
-                                    this@LoginActivity,
-                                    "Invalid Technician Login",
-                                    Toast.LENGTH_LONG
-                                ).show()
-
-                            }
-                        }
-
-                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-
-                            btnSignIn.isEnabled = true
-                            btnSignIn.text = "Secure Login"
-
-                            Toast.makeText(
-                                this@LoginActivity,
-                                "Network Error: ${t.message}",
-                                Toast.LENGTH_LONG
-                            ).show()
-
-                        }
-                    })
-
-            } else {
-
-                val request = mutableMapOf<String, String>()
-                request["username"] = username
-                request["email"] = username // Try both email and username
-                request["password"] = password
-                request["role"] = "doctor"
-
-                ApiClient.apiService.login(request)
-                    .enqueue(object : Callback<LoginResponse> {
-
-                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-
-                            btnSignIn.isEnabled = true
-                            btnSignIn.text = "Sign In"
-
-                            if (response.isSuccessful && response.body() != null) {
-
-                                Toast.makeText(
-                                    this@LoginActivity,
-                                    response.body()!!.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
-                                startActivity(Intent(this@LoginActivity, RadiologistDashboardActivity::class.java))
-                                finish()
-
-                            } else {
-                                val errorBodyString = response.errorBody()?.string()
-                                val errorDetail = try {
-                                    if (errorBodyString != null && errorBodyString.contains("detail")) {
-                                        val gson = Gson()
-                                        val errorJson = gson.fromJson(errorBodyString, Map::class.java)
-                                        val detail = errorJson["detail"]
-                                        if (detail is List<*>) {
-                                            val firstError = detail.firstOrNull() as? Map<*, *>
-                                            val loc = firstError?.get("loc") as? List<*>
-                                            val msg = firstError?.get("msg")?.toString()
-                                            if (loc != null && loc.size > 1) {
-                                                "Required: ${loc[1]} ($msg)"
-                                            } else {
-                                                msg
-                                            }
-                                        } else {
-                                            detail?.toString()
-                                        }
-                                    } else if (response.code() == 404) {
-                                         "Login Endpoint Not Found (404)"
-                                    } else if (response.code() == 422) {
-                                         "Schema Error (422): $errorBodyString"
-                                    } else {
-                                        "Invalid Doctor Credentials (${response.code()})"
-                                    }
-                                } catch (e: Exception) {
-                                    "Error: ${response.code()}"
-                                }
-
-                                Toast.makeText(
-                                    this@LoginActivity,
-                                    errorDetail ?: "Invalid Doctor Credentials",
-                                    Toast.LENGTH_LONG
-                                ).show()
-
-                            }
-                        }
-
-                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-
-                            btnSignIn.isEnabled = true
-                            btnSignIn.text = "Sign In"
-
-                            Toast.makeText(
-                                this@LoginActivity,
-                                "Network Error: ${t.message}",
-                                Toast.LENGTH_LONG
-                            ).show()
-
-                        }
-                    })
-            }
-        }
+    private fun isPasswordValid(password: String): Boolean {
+        val hasUpper = password.any { it.isUpperCase() }
+        val hasLower = password.any { it.isLowerCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSymbol = password.any { !it.isLetterOrDigit() }
+        val hasLength = password.length >= 8
+        return hasUpper && hasLower && hasDigit && hasSymbol && hasLength
     }
 }

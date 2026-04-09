@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID:"
-            android:textColor="#64748B"
+            android:textColor="#047857"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="P-1024"
-            android:textColor="#64748B"
+            android:textColor="#047857"
             android:textSize="14sp"
             android:layout_marginTop="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Last scan: 2 weeks ago • Dr. Bennett"
-            android:textColor="#94A3B8"
+            android:textColor="#10B981"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@id/tv_patient_id_label"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="4dp"
                 android:text="Pneumonia History"
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="12sp" />
 
             <TextView
@@ -86,7 +86,7 @@
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="4dp"
                 android:text="Smoker"
-                android:textColor="#64748B"
+                android:textColor="#047857"
                 android:textSize="12sp" />
         </LinearLayout>
 

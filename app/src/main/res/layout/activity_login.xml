@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/brand_blue"
+        android:background="@color/brand_green"
         app:layout_constraintBottom_toBottomOf="@id/header_container"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +57,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/bg_circle_blue"
+        android:background="@drawable/bg_circle_green_light"
         android:padding="24dp"
         android:src="@drawable/ic_pulse"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,9 +68,9 @@
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Welcome Back"
-        android:textColor="#1E293B"
+        android:textColor="#022C22"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,9 +81,9 @@
         android:id="@+id/tv_instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Please sign in to continue"
-        android:textColor="#94A3B8"
+        android:textColor="#10B981"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="HOSPITAL EMAIL"
-            android:textColor="#94A3B8"
+            android:textColor="#10B981"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -130,7 +130,7 @@
                 android:background="@null"
                 android:hint="Ex: doctor.user@hospital.com"
                 android:inputType="textEmailAddress"
-                android:textColor="#1E293B"
+                android:textColor="#022C22"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -141,34 +141,39 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
             android:text="PASSWORD"
-            android:textColor="#94A3B8"
+            android:textColor="#10B981"
             android:textSize="12sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@drawable/bg_edittext"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="16dp">
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#F1F5F9"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:endIconMode="password_toggle"
+            app:endIconTint="#10B981"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="#10B981">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_lock" />
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="12dp"
+                android:layout_height="56dp"
                 android:background="@null"
                 android:hint="••••••••"
                 android:inputType="textPassword"
-                android:textColor="#1E293B"
+                android:paddingStart="0dp"
+                android:textColor="#022C22"
                 android:textSize="16sp" />
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_forgot_password"
@@ -177,7 +182,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="16dp"
             android:text="Forgot Password?"
-            android:textColor="#1E62F0"
+            android:textColor="#10B981"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -190,7 +195,7 @@
         android:layout_height="64dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="48dp"
-        android:background="@drawable/bg_button_blue"
+        android:background="@drawable/bg_button_green"
         android:text="Sign In"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -226,7 +231,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:text="NEW USER?"
-                android:textColor="#94A3B8"
+                android:textColor="@color/brand_green"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
@@ -242,13 +247,13 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bg_button_outline_blue"
+            android:background="@drawable/bg_button_outline_green"
             android:drawableStart="@drawable/ic_person_add"
             android:drawablePadding="8dp"
             android:paddingStart="24dp"
             android:text="Create Technician Account"
             android:textAllCaps="false"
-            android:textColor="#1E62F0"
+            android:textColor="#10B981"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -269,7 +274,7 @@
             android:layout_height="wrap_content"
             android:alpha="0.6"
             android:text="Don't have an account?"
-            android:textColor="#1E293B"
+            android:textColor="#022C22"
             android:textSize="15sp" />
 
         <TextView
@@ -278,7 +283,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Create New Account"
-            android:textColor="#0F172A"
+            android:textColor="@color/brand_green_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -289,7 +294,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="CXTRIAGE AI v2.5.0 • Authorized Personnel Only"
-        android:textColor="#94A3B8"
+        android:textColor="#10B981"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

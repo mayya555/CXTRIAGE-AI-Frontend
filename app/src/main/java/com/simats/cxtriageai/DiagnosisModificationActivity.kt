@@ -23,6 +23,19 @@ class DiagnosisModificationActivity : AppCompatActivity() {
             insets
         }
 
+        val prefs = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE)
+        val doctorId = prefs.getInt("doctor_id", -1)
+
+        if (doctorId <= 0) {
+            val loginIntent = Intent(this, LoginActivity::class.java)
+            loginIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(loginIntent)
+            finish()
+            return
+        }
+
+        android.util.Log.d("DiagnosisMod", "Modifying diagnosis for doctor_id = $doctorId")
+
         findViewById<ImageView>(R.id.iv_back).setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

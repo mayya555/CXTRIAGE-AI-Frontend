@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginTop="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Patient Info -->
+        <View
+            android:id="@+id/iv_patient_initials_bg"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_badge_light_green"
+            android:backgroundTint="#F0FDF4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_person"
+            app:tint="#10B981"
+            app:layout_constraintBottom_toBottomOf="@id/iv_patient_initials_bg"
+            app:layout_constraintEnd_toEndOf="@id/iv_patient_initials_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_patient_initials_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_patient_initials_bg" />
+
+        <TextView
+            android:id="@+id/tv_patient_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Patient Name"
+            android:textColor="#0F172A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/iv_patient_initials_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_patient_initials_bg" />
+
+        <TextView
+            android:id="@+id/tv_mrn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MRN-0000"
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_patient_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_patient_name" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_chevron_right"
+            app:tint="#CBD5E1"
+            app:layout_constraintBottom_toBottomOf="@id/iv_patient_initials_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_patient_initials_bg" />
+
+        <!-- Scan Info -->
+        <TextView
+            android:id="@+id/tv_scan_id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Scan ID"
+            android:textColor="#94A3B8"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_patient_initials_bg" />
+
+        <TextView
+            android:id="@+id/tv_scan_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCN-0000"
+            android:textColor="#10B981"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_scan_id_label" />
+
+        <!-- Status Badge -->
+        <View
+            android:id="@+id/v_status_bg"
+            android:layout_width="100dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_badge_light_green"
+            app:layout_constraintBottom_toBottomOf="@id/tv_scan_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_scan_id" />
+
+        <TextView
+            android:id="@+id/tv_status_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textColor="#059669"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/v_status_bg"
+            app:layout_constraintEnd_toEndOf="@id/v_status_bg"
+            app:layout_constraintStart_toStartOf="@id/v_status_bg"
+            app:layout_constraintTop_toTopOf="@id/v_status_bg" />
+
+        <TextView
+            android:id="@+id/tv_scan_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Today, 10:00 AM"
+            android:textColor="#94A3B8"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_status_bg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

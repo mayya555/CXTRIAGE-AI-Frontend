@@ -20,9 +20,22 @@ class OnboardingActivity : AppCompatActivity() {
             insets
         }
 
-        findViewById<AppCompatButton>(R.id.btn_get_started).setOnClickListener {
-            val intent = Intent(this, HospitalSelectionActivity::class.java)
-            startActivity(intent)
+        val btnGetStarted = findViewById<AppCompatButton>(R.id.btn_get_started)
+        btnGetStarted.setOnClickListener {
+            navigateToHospitalSelection()
         }
+
+        // Auto-transition after 5 seconds for "page to page automatically" request
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            if (!isFinishing && !isDestroyed) {
+                navigateToHospitalSelection()
+            }
+        }, 5000)
+    }
+
+    private fun navigateToHospitalSelection() {
+        val intent = Intent(this, HospitalSelectionActivity::class.java)
+        startActivity(intent)
+        finish() // Finish onboarding so user doesn't go back to it
     }
 }

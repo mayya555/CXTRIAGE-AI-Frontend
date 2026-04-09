@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "title": "Date Of Birth"
+    },
+    "gender": {
+      "type": "string",
+      "title": "Gender"
+    },
+    "mrn": {
+      "type": "string",
+      "title": "Mrn"
+    },
+    "reason_for_xray": {
+      "type": "string",
+      "title": "Reason For Xray"
+    }
+  },
+  "type": "object",
+  "required": [
+    "full_name",
+    "date_of_birth",
+    "gender",
+    "mrn",
+    "reason_for_xray"
+  ],
+  "title": "PatientRegisterRequest"
+}

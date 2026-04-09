@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/brand_blue"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,31 +70,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="28dp"
-                app:cardElevation="2dp">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_support_card_blue"
+                    android:background="@drawable/bg_support_card_green"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="32dp">
 
-                    <View
+                    <FrameLayout
                         android:layout_width="56dp"
                         android:layout_height="56dp"
-                        android:background="@drawable/bg_circle_white_transparent" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginTop="-42dp"
-                        android:src="@drawable/ic_chat_white" />
+                        android:background="@drawable/bg_circle_white_transparent">
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_chat_white" />
+                    </FrameLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
+                        android:layout_marginTop="20dp"
                         android:text="Need Immediate Help?"
                         android:textColor="@color/white"
                         android:textSize="20sp"
@@ -106,19 +106,20 @@
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="Our support team is available 24/7 for\ncritical issues"
-                        android:textColor="#E0F2FE"
-                        android:textSize="14sp" />
+                        android:textColor="#ECFDF5"
+                        android:textSize="14sp"
+                        android:alpha="0.9" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_start_chat"
                         android:layout_width="match_parent"
                         android:layout_height="54dp"
                         android:layout_marginTop="28dp"
-                        android:background="@drawable/bg_button_pill_blue"
+                        android:background="@drawable/bg_button_pill_green"
                         android:backgroundTint="@color/white"
                         android:text="Start Live Chat"
                         android:textAllCaps="false"
-                        android:textColor="@color/brand_blue"
+                        android:textColor="@color/brand_green"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -131,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="COMMON TOPICS"
-                android:textColor="#94A3B8"
+                android:textColor="@color/brand_green"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
@@ -144,13 +145,14 @@
                 android:background="@drawable/bg_input_border_radius_20"
                 android:backgroundTint="@color/white"
                 android:gravity="center_vertical"
-                android:paddingHorizontal="16dp">
+                android:paddingHorizontal="16dp"
+                android:elevation="1dp">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_search"
-                    app:tint="#94A3B8" />
+                    app:tint="@color/brand_green" />
 
                 <EditText
                     android:id="@+id/et_search"
@@ -159,7 +161,7 @@
                     android:layout_marginStart="12dp"
                     android:background="@android:color/transparent"
                     android:hint="Search help articles..."
-                    android:textColor="#1E293B"
+                    android:textColor="#022C22"
                     android:textColorHint="#94A3B8"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -196,7 +198,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
-                            app:tint="#CBD5E1" />
+                            app:tint="#94A3B8" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -225,7 +227,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
-                            app:tint="#CBD5E1" />
+                            app:tint="#94A3B8" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -254,7 +256,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
-                            app:tint="#CBD5E1" />
+                            app:tint="#94A3B8" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -283,7 +285,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
-                            app:tint="#CBD5E1" />
+                            app:tint="#94A3B8" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -312,7 +314,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:src="@drawable/ic_chevron_right"
-                            app:tint="#CBD5E1" />
+                            app:tint="#94A3B8" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -327,6 +329,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:elevation="8dp"
         android:orientation="horizontal"
         android:paddingHorizontal="24dp"
         android:paddingVertical="20dp"
@@ -338,7 +341,7 @@
             android:layout_height="56dp"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_button_pill_light_blue"
+            android:background="@drawable/bg_button_pill_light_green"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true">
@@ -346,13 +349,13 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_smartphone"
-                app:tint="@color/brand_blue" />
+                app:tint="@color/brand_green" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Call IT"
-                android:textColor="@color/brand_blue"
+                android:textColor="@color/brand_green"
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -363,7 +366,7 @@
             android:layout_height="56dp"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:background="@drawable/bg_button_pill_light_blue"
+            android:background="@drawable/bg_button_pill_light_green"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true">
@@ -371,13 +374,13 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_email"
-                app:tint="@color/brand_blue" />
+                app:tint="@color/brand_green" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Email"
-                android:textColor="@color/brand_blue"
+                android:textColor="@color/brand_green"
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>

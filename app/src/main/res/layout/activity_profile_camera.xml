@@ -7,12 +7,11 @@
     android:background="#000000"
     tools:context=".ProfileCameraActivity">
 
-    <!-- Camera Preview Placeholder -->
-    <FrameLayout
+    <!-- Camera Preview -->
+    <androidx.camera.view.PreviewView
         android:id="@+id/camera_preview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#202020" />
+        android:layout_height="match_parent" />
 
     <!-- Circular Guide Overlay -->
     <View

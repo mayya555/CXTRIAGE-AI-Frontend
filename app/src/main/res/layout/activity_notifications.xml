@@ -13,7 +13,7 @@
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/brand_teal"
+        android:background="@color/brand_green"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,7 +82,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/bg_notif_icon_box"
-                        android:backgroundTint="@color/notification_teal_bg"
+                        android:backgroundTint="@color/notif_info_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +92,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_clock"
-                        app:tint="@color/notification_teal_icon"
+                        app:tint="@color/notif_info_icon"
                         app:layout_constraintBottom_toBottomOf="@id/iv_icon_shift_bg"
                         app:layout_constraintEnd_toEndOf="@id/iv_icon_shift_bg"
                         app:layout_constraintStart_toStartOf="@id/iv_icon_shift_bg"
@@ -113,7 +113,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Shift Alerts"
-                            android:textColor="#1E293B"
+                            android:textColor="#022C22"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -122,7 +122,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="Upcoming shift reminders"
-                            android:textColor="#64748B"
+                            android:textColor="#047857"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:thumbTint="@color/white"
-                        app:trackTint="#3B82F6"
+                        app:trackTint="#34D399"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -159,7 +159,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/bg_notif_icon_box"
-                        android:backgroundTint="@color/notification_blue_bg"
+                        android:backgroundTint="@color/notif_success_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -169,7 +169,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_person"
-                        app:tint="@color/notification_blue_icon"
+                        app:tint="@color/notif_success_icon"
                         app:layout_constraintBottom_toBottomOf="@id/iv_icon_assignments_bg"
                         app:layout_constraintEnd_toEndOf="@id/iv_icon_assignments_bg"
                         app:layout_constraintStart_toStartOf="@id/iv_icon_assignments_bg"
@@ -190,7 +190,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="New Assignments"
-                            android:textColor="#1E293B"
+                            android:textColor="#022C22"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -199,7 +199,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="When patients are checked in"
-                            android:textColor="#64748B"
+                            android:textColor="#047857"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -209,7 +209,7 @@
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:thumbTint="@color/white"
-                        app:trackTint="#3B82F6"
+                        app:trackTint="#34D399"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -236,7 +236,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/bg_notif_icon_box"
-                        android:backgroundTint="@color/notification_red_bg"
+                        android:backgroundTint="@color/notif_urgent_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -246,7 +246,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_bolt"
-                        app:tint="@color/notification_red_icon"
+                        app:tint="@color/notif_urgent_icon"
                         app:layout_constraintBottom_toBottomOf="@id/iv_icon_urgent_bg"
                         app:layout_constraintEnd_toEndOf="@id/iv_icon_urgent_bg"
                         app:layout_constraintStart_toStartOf="@id/iv_icon_urgent_bg"
@@ -267,7 +267,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Urgent Scans"
-                            android:textColor="#1E293B"
+                            android:textColor="#022C22"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -276,7 +276,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="Priority STAT requests"
-                            android:textColor="#64748B"
+                            android:textColor="#047857"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -286,7 +286,7 @@
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:thumbTint="@color/white"
-                        app:trackTint="#3B82F6"
+                        app:trackTint="#34D399"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

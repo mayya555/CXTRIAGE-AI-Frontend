@@ -72,6 +72,11 @@ class NewPasswordActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (!isPasswordValid(newPass)) {
+                Toast.makeText(this, "Invalid Password: Must contain at least one uppercase letter, one lowercase letter, one number, and one symbol.", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             if (newPass != confirmPass) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -114,5 +119,13 @@ class NewPasswordActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        val hasUpper = password.any { it.isUpperCase() }
+        val hasLower = password.any { it.isLowerCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSymbol = password.any { !it.isLetterOrDigit() }
+        return hasUpper && hasLower && hasDigit && hasSymbol
     }
 }

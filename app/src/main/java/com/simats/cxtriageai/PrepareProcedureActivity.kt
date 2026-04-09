@@ -55,12 +55,67 @@ class PrepareProcedureActivity : AppCompatActivity() {
 
         findViewById<AppCompatButton>(R.id.btn_start_scan).setOnClickListener {
             if (checkStates.all { it }) {
-                val intentToUpload = Intent(this, UploadScanActivity::class.java)
-                // Pass patient data forward
-                intentToUpload.putExtra("PATIENT_NAME", intent.getStringExtra("PATIENT_NAME"))
-                intentToUpload.putExtra("PATIENT_DOB", intent.getStringExtra("PATIENT_DOB"))
-                intentToUpload.putExtra("PATIENT_MRN", intent.getStringExtra("PATIENT_MRN"))
-                startActivity(intentToUpload)
+                val patientId = intent.getIntExtra("PATIENT_ID", -1)
+                if (patientId == -1) {
+                    Toast.makeText(this, "Error: Missing Patient ID", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                val technicianId = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE).getInt("technician_id", -1)
+                
+                if (technicianId == -1) {
+                    Toast.makeText(this, "Error: Technician session expired. Please login again.", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                    return@setOnClickListener
+                }
+
+                // 1. Start the Scan
+                ApiClient.apiService.startScan(patientId, technicianId).enqueue(object : retrofit2.Callback<StartScanResponse> {
+                    override fun onResponse(call: retrofit2.Call<StartScanResponse>, response: retrofit2.Response<StartScanResponse>) {
+                        if (response.isSuccessful && response.body() != null) {
+                            val scanId = response.body()!!.scanId
+                            
+                            // 2. Save Preparations
+                            val prepRequest = ScanPreparationRequest(
+                                positionPatient = true,
+                                properDistance = true,
+                                radiationSafety = true,
+                                removeMetal = true,
+                                calibrationVerified = true,
+                                exposureSettings = true
+                            )
+
+                            ApiClient.apiService.saveScanPreparation(scanId, prepRequest).enqueue(object : retrofit2.Callback<ScanPreparationResponse> {
+                                override fun onResponse(pCall: retrofit2.Call<ScanPreparationResponse>, pResponse: retrofit2.Response<ScanPreparationResponse>) {
+                                    if (pResponse.isSuccessful) {
+                                        // 3. Navigate to Capture Method Activity
+                                        val intentToCapture = Intent(this@PrepareProcedureActivity, CaptureMethodActivity::class.java)
+                                        intentToCapture.putExtra("SCAN_ID", scanId)
+                                        intentToCapture.putExtra("PATIENT_NAME", intent.getStringExtra("PATIENT_NAME"))
+                                        intentToCapture.putExtra("PATIENT_MRN", intent.getStringExtra("PATIENT_MRN"))
+                                        intentToCapture.putExtra("PATIENT_ID", patientId)
+                                        startActivity(intentToCapture)
+                                    } else {
+                                        Toast.makeText(this@PrepareProcedureActivity, "Failed to save preparations", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+
+                                override fun onFailure(pCall: retrofit2.Call<ScanPreparationResponse>, t: Throwable) {
+                                    Toast.makeText(this@PrepareProcedureActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                            
+                        } else {
+                            Toast.makeText(this@PrepareProcedureActivity, "Failed to start scan", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: retrofit2.Call<StartScanResponse>, t: Throwable) {
+                        Toast.makeText(this@PrepareProcedureActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
             } else {
                 Toast.makeText(this, "Please complete all preparation steps first.", Toast.LENGTH_SHORT).show()
             }

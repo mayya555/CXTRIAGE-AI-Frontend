@@ -1,0 +1,201 @@
+﻿python : 
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:1
+8: MovedIn20Warning: 
+The ``declarative_base
+()`` function is now 
+available as sqlalchem
+y.orm.declarative_base
+(). (deprecated 
+since: 2.0) 
+(Background on 
+SQLAlchemy 2.0 at: htt
+ps://sqlalche.me/e/b8d
+9)
+At line:1 char:17
++ ... :PORT=8001; 
+python fastapi_backend
+/main.py --port 8001 
+> backend_8001 ...
++                 ~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (C:\Users\M   
+ allav...lche.me/e    
+/b8d9):String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+  Base = 
+declarative_base()
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:9
+4: PydanticDeprecatedS
+ince20: Pydantic V1 
+style `@validator` 
+validators are 
+deprecated. You 
+should migrate to 
+Pydantic V2 style 
+`@field_validator` 
+validators, see the 
+migration guide for 
+more details. 
+Deprecated in 
+Pydantic V2.0 to be 
+removed in V3.0. See 
+Pydantic V2 Migration 
+Guide at https://error
+s.pydantic.dev/2.12/mi
+gration/
+  @validator("first_na
+me", "last_name")
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:1
+00: PydanticDeprecated
+Since20: Pydantic V1 
+style `@validator` 
+validators are 
+deprecated. You 
+should migrate to 
+Pydantic V2 style 
+`@field_validator` 
+validators, see the 
+migration guide for 
+more details. 
+Deprecated in 
+Pydantic V2.0 to be 
+removed in V3.0. See 
+Pydantic V2 Migration 
+Guide at https://error
+s.pydantic.dev/2.12/mi
+gration/
+  @validator("phone_nu
+mber")
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:1
+06: PydanticDeprecated
+Since20: Pydantic V1 
+style `@validator` 
+validators are 
+deprecated. You 
+should migrate to 
+Pydantic V2 style 
+`@field_validator` 
+validators, see the 
+migration guide for 
+more details. 
+Deprecated in 
+Pydantic V2.0 to be 
+removed in V3.0. See 
+Pydantic V2 Migration 
+Guide at https://error
+s.pydantic.dev/2.12/mi
+gration/
+  
+@validator("password")
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:1
+27: PydanticDeprecated
+Since20: Pydantic V1 
+style `@validator` 
+validators are 
+deprecated. You 
+should migrate to 
+Pydantic V2 style 
+`@field_validator` 
+validators, see the 
+migration guide for 
+more details. 
+Deprecated in 
+Pydantic V2.0 to be 
+removed in V3.0. See 
+Pydantic V2 Migration 
+Guide at https://error
+s.pydantic.dev/2.12/mi
+gration/
+  @validator("firstNam
+e", "lastName")
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:1
+33: PydanticDeprecated
+Since20: Pydantic V1 
+style `@validator` 
+validators are 
+deprecated. You 
+should migrate to 
+Pydantic V2 style 
+`@field_validator` 
+validators, see the 
+migration guide for 
+more details. 
+Deprecated in 
+Pydantic V2.0 to be 
+removed in V3.0. See 
+Pydantic V2 Migration 
+Guide at https://error
+s.pydantic.dev/2.12/mi
+gration/
+  @validator("phoneNum
+ber")
+C:\Users\Mallavarapu M
+ahendra\AndroidStudioP
+rojects\CXTRIAGEAI\fas
+tapi_backend\main.py:1
+39: PydanticDeprecated
+Since20: Pydantic V1 
+style `@validator` 
+validators are 
+deprecated. You 
+should migrate to 
+Pydantic V2 style 
+`@field_validator` 
+validators, see the 
+migration guide for 
+more details. 
+Deprecated in 
+Pydantic V2.0 to be 
+removed in V3.0. See 
+Pydantic V2 Migration 
+Guide at https://error
+s.pydantic.dev/2.12/mi
+gration/
+  
+@validator("password")
+INFO:     Started 
+server process [33168]
+INFO:     Waiting for 
+application startup.
+INFO:     Application 
+startup complete.
+ERROR:    [Errno 
+10048] error while 
+attempting to bind on 
+address ('0.0.0.0', 
+8000): only one usage 
+of each socket 
+address 
+(protocol/network 
+address/port) is 
+normally permitted
+INFO:     Waiting for 
+application shutdown.
+INFO:     Application 
+shutdown complete.

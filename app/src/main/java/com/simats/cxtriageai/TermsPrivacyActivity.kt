@@ -1,5 +1,6 @@
 package com.simats.cxtriageai
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -23,7 +24,8 @@ class TermsPrivacyActivity : AppCompatActivity() {
             insets
         }
 
-        val isViewOnly = intent.hasExtra("TYPE")
+        val isGateway = intent.getBooleanExtra("IS_GATEWAY", false)
+        val isViewOnly = intent.hasExtra("TYPE") && !isGateway
         val consentLayout = findViewById<android.view.View>(R.id.layout_consent)
         
         if (isViewOnly) {
@@ -33,7 +35,8 @@ class TermsPrivacyActivity : AppCompatActivity() {
                 if (type == "TERMS") "Terms of Service" else "Privacy Policy"
         }
 
-        findViewById<android.widget.ImageView>(R.id.iv_back).setOnClickListener {
+        // Back button is hidden in layout for redesign, but we handle it just in case
+        findViewById<android.widget.ImageView>(R.id.iv_back)?.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
@@ -47,18 +50,28 @@ class TermsPrivacyActivity : AppCompatActivity() {
 
         acceptButton.setOnClickListener {
             if (agreeCheckbox.isChecked) {
-                // Determine destination based on role (default to Radiologist/Doctor)
-                val role = intent.getStringExtra("ROLE") ?: "Doctor"
-                val targetActivity = if (role == "Technician") {
-                    TechnicianDashboardActivity::class.java
+                // Save acceptance status
+                val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                prefs.edit().putBoolean("terms_accepted", true).apply()
+
+                if (isGateway) {
+                    val intent = Intent(this, OnboardingActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
-                    RadiologistDashboardActivity::class.java
+                    // Determine destination based on role (default to Radiologist/Doctor)
+                    val role = intent.getStringExtra("ROLE") ?: "Doctor"
+                    val targetActivity = if (role == "Technician") {
+                        TechnicianDashboardActivity::class.java
+                    } else {
+                        CaseQueueActivity::class.java
+                    }
+                    
+                    val intent = Intent(this, targetActivity)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                    finish()
                 }
-                
-                val intent = Intent(this, targetActivity)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(this, "Please accept the terms to continue", Toast.LENGTH_SHORT).show()
             }
