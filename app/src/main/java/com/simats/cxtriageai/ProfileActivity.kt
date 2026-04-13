@@ -115,33 +115,62 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun loadProfileData() {
         val prefs = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE)
-        val technicianId = prefs.getInt("technician_id", -1)
+        
+        if (userRole == "Doctor") {
+            val doctorEmail = prefs.getString("doctor_email", null)
+            if (doctorEmail == null) {
+                // Fallback for Doctor UI testing
+                findViewById<TextView>(R.id.tv_profile_name).text = "Dr. Sarah Bennett"
+                findViewById<TextView>(R.id.tv_profile_email).text = "sarah.bennett@hospital.org"
+                return
+            }
 
-        if (technicianId == -1) {
-            // Fallback to mock data if no real ID
-            findViewById<TextView>(R.id.tv_profile_name).text = "Dr. Sarah Bennett"
-            findViewById<TextView>(R.id.tv_profile_email).text = "sarah.bennett@hospital.org"
-            return
-        }
-
-        ApiClient.apiService.getTechnicianProfile(technicianId).enqueue(object : Callback<TechnicianProfileResponse> {
-            override fun onResponse(call: Call<TechnicianProfileResponse>, response: Response<TechnicianProfileResponse>) {
-                if (response.isSuccessful && response.body() != null) {
-                    val profile = response.body()!!
-                    findViewById<TextView>(R.id.tv_profile_name).text = profile.fullName
-                    findViewById<TextView>(R.id.tv_profile_email).text = profile.email
-                    
-                    if (!profile.profilePhotoUrl.isNullOrEmpty()) {
-                        val fullUrl = "${ApiClient.GET_STATIC_URL}${profile.profilePhotoUrl}"
-                        loadProfilePhotoFromServer(fullUrl)
+            ApiClient.apiService.getDoctorProfile(doctorEmail).enqueue(object : Callback<DoctorProfileResponse> {
+                override fun onResponse(call: Call<DoctorProfileResponse>, response: Response<DoctorProfileResponse>) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val profile = response.body()!!
+                        findViewById<TextView>(R.id.tv_profile_name).text = profile.fullName
+                        findViewById<TextView>(R.id.tv_profile_email).text = profile.email
+                        
+                        if (!profile.profilePhotoUrl.isNullOrEmpty()) {
+                            val fullUrl = "${ApiClient.GET_STATIC_URL}${profile.profilePhotoUrl}"
+                            loadProfilePhotoFromServer(fullUrl)
+                        }
                     }
                 }
+
+                override fun onFailure(call: Call<DoctorProfileResponse>, t: Throwable) {
+                    android.util.Log.e("Profile", "Network Error: ${t.message}")
+                }
+            })
+        } else {
+            val technicianEmail = prefs.getString("technician_email", null)
+            if (technicianEmail == null) {
+                // Fallback for Technician UI testing
+                findViewById<TextView>(R.id.tv_profile_name).text = "Technician User"
+                findViewById<TextView>(R.id.tv_profile_email).text = "tech@hospital.org"
+                return
             }
 
-            override fun onFailure(call: Call<TechnicianProfileResponse>, t: Throwable) {
-                android.util.Log.e("Profile", "Network Error: ${t.message}")
-            }
-        })
+            ApiClient.apiService.getTechnicianProfile(technicianEmail).enqueue(object : Callback<TechnicianProfileResponse> {
+                override fun onResponse(call: Call<TechnicianProfileResponse>, response: Response<TechnicianProfileResponse>) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val profile = response.body()!!
+                        findViewById<TextView>(R.id.tv_profile_name).text = profile.fullName
+                        findViewById<TextView>(R.id.tv_profile_email).text = profile.email
+                        
+                        if (!profile.profilePhotoUrl.isNullOrEmpty()) {
+                            val fullUrl = "${ApiClient.GET_STATIC_URL}${profile.profilePhotoUrl}"
+                            loadProfilePhotoFromServer(fullUrl)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<TechnicianProfileResponse>, t: Throwable) {
+                    android.util.Log.e("Profile", "Network Error: ${t.message}")
+                }
+            })
+        }
     }
 
     private fun loadProfilePhotoFromServer(url: String) {

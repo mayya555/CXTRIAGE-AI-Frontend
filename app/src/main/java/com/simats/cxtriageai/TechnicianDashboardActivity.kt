@@ -51,7 +51,11 @@ class TechnicianDashboardActivity : AppCompatActivity() {
         }
 
         // Bottom Navigation
-        findViewById<View>(R.id.btn_nav_register).setOnClickListener {
+        findViewById<View>(R.id.btn_nav_home).setOnClickListener {
+            // Already here
+        }
+
+        findViewById<View>(R.id.btn_nav_scan).setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
         }
 
@@ -207,10 +211,10 @@ class TechnicianDashboardActivity : AppCompatActivity() {
 
     private fun loadProfileData() {
         val prefs = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE)
-        val technicianId = prefs.getInt("technician_id", -1)
-        if (technicianId == -1) return
+        val technicianEmail = prefs.getString("technician_email", null)
+        if (technicianEmail == null) return
 
-        ApiClient.apiService.getTechnicianProfile(technicianId).enqueue(object : Callback<TechnicianProfileResponse> {
+        ApiClient.apiService.getTechnicianProfile(technicianEmail).enqueue(object : Callback<TechnicianProfileResponse> {
             override fun onResponse(call: Call<TechnicianProfileResponse>, response: Response<TechnicianProfileResponse>) {
                 if (response.isSuccessful && response.body() != null) {
                     val profile = response.body()!!

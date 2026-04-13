@@ -3,7 +3,7 @@ package com.simats.cxtriageai
 import com.google.gson.annotations.SerializedName
 
 data class DoctorProfileResponse(
-    @SerializedName("doctor_id") val id: Int,
+    @SerializedName("id") val id: Int,
     @SerializedName("full_name") val fullName: String,
     @SerializedName("email") val email: String,
     @SerializedName("phone_number") val phoneNumber: String?,
@@ -18,7 +18,7 @@ data class UpdateDoctorProfileRequest(
     @SerializedName("first_name") val firstName: String,
     @SerializedName("last_name") val lastName: String,
     @SerializedName("phone_number") val phoneNumber: String,
-    @SerializedName("hospital_email") val hospitalEmail: String
+    @SerializedName("email") val email: String
 )
 
 data class UpdateDoctorProfileResponse(

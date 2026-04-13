@@ -13,6 +13,8 @@ data class TechnicianProfileResponse(
 )
 
 data class UpdateTechnicianProfileRequest(
+    @SerializedName("id") val id: Int,
+    @SerializedName("technician_id") val technicianId: Int,
     @SerializedName("first_name") val firstName: String,
     @SerializedName("last_name") val lastName: String,
     @SerializedName("phone_number") val phoneNumber: String,

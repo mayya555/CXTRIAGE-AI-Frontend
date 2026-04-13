@@ -109,10 +109,10 @@ class EditProfileActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE)
         
         if (userRole?.equals("Doctor", ignoreCase = true) == true) {
-            val doctorId = prefs.getInt("doctor_id", -1)
-            if (doctorId == -1) return
+            val email = prefs.getString("doctor_email", null)
+            if (email == null) return
 
-            ApiClient.apiService.getDoctorProfile(doctorId).enqueue(object : Callback<DoctorProfileResponse> {
+            ApiClient.apiService.getDoctorProfile(email).enqueue(object : Callback<DoctorProfileResponse> {
                 override fun onResponse(call: Call<DoctorProfileResponse>, response: Response<DoctorProfileResponse>) {
                     if (response.isSuccessful && response.body() != null) {
                         val profile = response.body()!!
@@ -127,9 +127,9 @@ class EditProfileActivity : AppCompatActivity() {
                 }
             })
         } else {
-            val technicianId = prefs.getInt("technician_id", -1)
+            val email = prefs.getString("technician_email", null)
 
-            if (technicianId == -1) {
+            if (email == null) {
                 // Fallback for UI testing
                 findViewById<EditText>(R.id.et_full_name).setText("Dr. Sarah Bennett")
                 findViewById<EditText>(R.id.et_email).setText("sarah.bennett@hospital.org")
@@ -137,7 +137,7 @@ class EditProfileActivity : AppCompatActivity() {
                 return
             }
 
-            ApiClient.apiService.getTechnicianProfile(technicianId).enqueue(object : Callback<TechnicianProfileResponse> {
+            ApiClient.apiService.getTechnicianProfile(email).enqueue(object : Callback<TechnicianProfileResponse> {
                 override fun onResponse(call: Call<TechnicianProfileResponse>, response: Response<TechnicianProfileResponse>) {
                     if (response.isSuccessful && response.body() != null) {
                         val profile = response.body()!!
@@ -201,7 +201,7 @@ class EditProfileActivity : AppCompatActivity() {
                 firstName = firstName,
                 lastName = lastName,
                 phoneNumber = phone,
-                hospitalEmail = email
+                email = email
             )
 
             ApiClient.apiService.updateDoctorProfile(request).enqueue(object : Callback<UpdateDoctorProfileResponse> {
@@ -237,9 +237,15 @@ class EditProfileActivity : AppCompatActivity() {
             })
         } else if (userRole?.equals("Technician", ignoreCase = true) == true) {
             val sessionEmail = prefs.getString("technician_email", "") ?: ""
+            val technicianId = prefs.getInt("technician_id", -1)
             
-            if (email != sessionEmail) {
+            if (email != sessionEmail && sessionEmail.isNotEmpty()) {
                 Toast.makeText(this, "Email must match your account email", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            if (technicianId == -1) {
+                Toast.makeText(this, "Session invalid. Please login again.", Toast.LENGTH_SHORT).show()
                 return
             }
 
@@ -247,6 +253,8 @@ class EditProfileActivity : AppCompatActivity() {
             btnSave.text = "Saving..."
 
             val request = UpdateTechnicianProfileRequest(
+                id = technicianId,
+                technicianId = technicianId,
                 firstName = firstName,
                 lastName = lastName,
                 phoneNumber = phone,

@@ -33,12 +33,12 @@ class ScanHistoryActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
-        findViewById<android.view.View>(R.id.btn_home).setOnClickListener {
+        findViewById<android.view.View>(R.id.btn_nav_home).setOnClickListener {
             startActivity(Intent(this, TechnicianDashboardActivity::class.java))
             finish()
         }
 
-        findViewById<android.view.View>(R.id.btn_nav_register).setOnClickListener {
+        findViewById<android.view.View>(R.id.btn_nav_scan).setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
             finish()
         }

@@ -28,8 +28,8 @@ class SettingsActivity : AppCompatActivity() {
             findViewById<android.view.View>(R.id.header_bg).layoutParams.height = 100.dpToPx() + systemBars.top
             findViewById<android.view.View>(R.id.header_bg).requestLayout()
             
-            // Apply padding to both navigation versions to handle system bottom bars
-            findViewById<android.view.View>(R.id.bottom_navigation)?.setPadding(0, 0, 0, systemBars.bottom)
+            // Apply padding to all navigation versions to handle system bottom bars
+            findViewById<android.view.View>(R.id.bottom_nav_technician)?.setPadding(0, 0, 0, systemBars.bottom)
             findViewById<android.view.View>(R.id.bottom_nav_custom)?.setPadding(0, 0, 0, systemBars.bottom)
             
             insets
@@ -80,18 +80,18 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun loadProfileData() {
         val prefs = getSharedPreferences("user_prefs", android.content.Context.MODE_PRIVATE)
-        val technicianId = prefs.getInt("technician_id", -1)
+        val technicianEmail = prefs.getString("technician_email", null)
 
-        if (technicianId == -1) {
+        if (technicianEmail == null) {
             // Only show toast if specifically expected
             if (userRole == "Technician") {
-                android.util.Log.e("Settings", "Technician ID not found in preferences")
+                android.util.Log.e("Settings", "Technician email not found in preferences")
             }
             applyRoleBranding()
             return
         }
 
-        ApiClient.apiService.getTechnicianProfile(technicianId).enqueue(object : Callback<TechnicianProfileResponse> {
+        ApiClient.apiService.getTechnicianProfile(technicianEmail).enqueue(object : Callback<TechnicianProfileResponse> {
             override fun onResponse(call: Call<TechnicianProfileResponse>, response: Response<TechnicianProfileResponse>) {
                 if (response.isSuccessful && response.body() != null) {
                     // Cache or handle profile data if needed, but views are removed from this screen
@@ -181,17 +181,17 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
-        val bottomNavStandard = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)
+        val bottomNavTechnician = findViewById<android.view.View>(R.id.bottom_nav_technician)
         val bottomNavCustom = findViewById<android.widget.LinearLayout>(R.id.bottom_nav_custom)
 
         if (userRole == "Doctor" || userRole == "Radiologist") {
-            bottomNavStandard?.visibility = View.GONE
+            bottomNavTechnician?.visibility = View.GONE
             bottomNavCustom?.visibility = View.VISIBLE
             setupCustomNavigationListeners()
         } else {
-            bottomNavStandard?.visibility = View.VISIBLE
+            bottomNavTechnician?.visibility = View.VISIBLE
             bottomNavCustom?.visibility = View.GONE
-            setupStandardNavigation(bottomNavStandard)
+            setupTechnicianNavigationListeners()
         }
     }
 
@@ -219,33 +219,20 @@ class SettingsActivity : AppCompatActivity() {
         // nav_settings_custom is already active
     }
 
-    private fun setupStandardNavigation(bottomNav: com.google.android.material.bottomnavigation.BottomNavigationView?) {
-        if (bottomNav == null) return
-        bottomNav.menu.clear()
-        bottomNav.inflateMenu(R.menu.technician_bottom_nav)
-        bottomNav.selectedItemId = R.id.navigation_settings
-        
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    startActivity(Intent(this, TechnicianDashboardActivity::class.java))
-                    finish()
-                    true
-                }
-                R.id.navigation_scan -> {
-                    startActivity(Intent(this, RegistrationActivity::class.java))
-                    finish()
-                    true
-                }
-                R.id.navigation_history -> {
-                    startActivity(Intent(this, ScanHistoryActivity::class.java))
-                    finish()
-                    true
-                }
-                R.id.navigation_settings -> true
-                else -> false
-            }
+    private fun setupTechnicianNavigationListeners() {
+        findViewById<View>(R.id.btn_nav_home)?.setOnClickListener {
+            startActivity(Intent(this, TechnicianDashboardActivity::class.java))
+            finish()
         }
+        findViewById<View>(R.id.btn_nav_scan)?.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+            finish()
+        }
+        findViewById<View>(R.id.btn_nav_history)?.setOnClickListener {
+            startActivity(Intent(this, ScanHistoryActivity::class.java))
+            finish()
+        }
+        // btn_nav_settings is already active
     }
 
     private fun showSignOutDialog() {

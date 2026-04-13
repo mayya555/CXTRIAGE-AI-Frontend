@@ -166,10 +166,10 @@ class ProfilePhotoActivity : AppCompatActivity() {
         val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
 
         if (userRole?.equals("Doctor", ignoreCase = true) == true) {
-            val doctorId = prefs.getInt("doctor_id", -1)
-            if (doctorId == -1) return
+            val email = prefs.getString("doctor_email", null)
+            if (email == null) return
 
-            ApiClient.apiService.uploadDoctorPhoto(doctorId, body).enqueue(object : Callback<UpdateDoctorProfileResponse> {
+            ApiClient.apiService.uploadDoctorPhoto(email, body).enqueue(object : Callback<UpdateDoctorProfileResponse> {
                 override fun onResponse(call: Call<UpdateDoctorProfileResponse>, response: Response<UpdateDoctorProfileResponse>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@ProfilePhotoActivity, "Doctor photo synced!", Toast.LENGTH_SHORT).show()
@@ -178,10 +178,10 @@ class ProfilePhotoActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<UpdateDoctorProfileResponse>, t: Throwable) {}
             })
         } else {
-            val technicianId = prefs.getInt("technician_id", -1)
-            if (technicianId == -1) return
+            val email = prefs.getString("technician_email", null)
+            if (email == null) return
 
-            ApiClient.apiService.uploadTechnicianPhoto(technicianId, body).enqueue(object : Callback<UpdateTechnicianProfileResponse> {
+            ApiClient.apiService.uploadTechnicianPhoto(email, body).enqueue(object : Callback<UpdateTechnicianProfileResponse> {
                 override fun onResponse(call: Call<UpdateTechnicianProfileResponse>, response: Response<UpdateTechnicianProfileResponse>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@ProfilePhotoActivity, "Technician photo synced!", Toast.LENGTH_SHORT).show()
@@ -231,10 +231,10 @@ class ProfilePhotoActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         
         if (userRole?.equals("Doctor", ignoreCase = true) == true) {
-            val doctorId = prefs.getInt("doctor_id", -1)
-            if (doctorId == -1) return
+            val email = prefs.getString("doctor_email", null)
+            if (email == null) return
 
-            ApiClient.apiService.getDoctorProfile(doctorId).enqueue(object : Callback<DoctorProfileResponse> {
+            ApiClient.apiService.getDoctorProfile(email).enqueue(object : Callback<DoctorProfileResponse> {
                 override fun onResponse(call: Call<DoctorProfileResponse>, response: Response<DoctorProfileResponse>) {
                     if (response.isSuccessful && response.body() != null) {
                         val profile = response.body()!!
@@ -247,10 +247,10 @@ class ProfilePhotoActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<DoctorProfileResponse>, t: Throwable) {}
             })
         } else {
-            val technicianId = prefs.getInt("technician_id", -1)
-            if (technicianId == -1) return
+            val email = prefs.getString("technician_email", null)
+            if (email == null) return
 
-            ApiClient.apiService.getTechnicianProfile(technicianId).enqueue(object : Callback<TechnicianProfileResponse> {
+            ApiClient.apiService.getTechnicianProfile(email).enqueue(object : Callback<TechnicianProfileResponse> {
                 override fun onResponse(call: Call<TechnicianProfileResponse>, response: Response<TechnicianProfileResponse>) {
                     if (response.isSuccessful && response.body() != null) {
                         val profile = response.body()!!

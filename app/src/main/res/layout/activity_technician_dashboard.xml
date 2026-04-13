@@ -45,14 +45,12 @@
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_marginEnd="24dp"
-        android:background="#022C22"
-        android:padding="12dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_person"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
         app:layout_constraintBottom_toBottomOf="@id/tv_portal_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_dashboard_title"
-        app:tint="@color/white" />
+        app:layout_constraintTop_toTopOf="@id/tv_dashboard_title" />
 
     <!-- Stats Cards Row -->
     <LinearLayout
@@ -342,7 +340,7 @@
 
             <!-- Home -->
             <LinearLayout
-                android:id="@+id/btn_home"
+                android:id="@+id/btn_nav_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -354,7 +352,7 @@
                 <ImageView
                     android:layout_width="26dp"
                     android:layout_height="26dp"
-                    android:src="@drawable/ic_dashboard"
+                    android:src="@drawable/ic_home"
                     app:tint="#10B981" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -366,9 +364,9 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Register -->
+            <!-- Scan -->
             <LinearLayout
-                android:id="@+id/btn_nav_register"
+                android:id="@+id/btn_nav_scan"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -380,13 +378,13 @@
                 <ImageView
                     android:layout_width="26dp"
                     android:layout_height="26dp"
-                    android:src="@drawable/ic_person_add"
+                    android:src="@drawable/ic_camera"
                     app:tint="#94A3B8" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Register"
+                    android:text="Scan"
                     android:textColor="#94A3B8"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -405,7 +403,7 @@
                 <ImageView
                     android:layout_width="26dp"
                     android:layout_height="26dp"
-                    android:src="@drawable/ic_history"
+                    android:src="@drawable/ic_clock"
                     app:tint="#94A3B8" />
                 <TextView
                     android:layout_width="wrap_content"

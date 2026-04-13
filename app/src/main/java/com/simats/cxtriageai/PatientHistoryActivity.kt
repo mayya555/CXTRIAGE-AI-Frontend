@@ -9,10 +9,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class PatientHistoryActivity : AppCompatActivity() {
+    private lateinit var llEmptyState: android.widget.LinearLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_patient_history)
+
+        llEmptyState = findViewById(R.id.ll_empty_state)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.patient_history_root)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -69,15 +73,8 @@ class PatientHistoryActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         val recyclerView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_patient_history)
         recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
-
-        val historyList = listOf(
-            PatientHistoryItem("John Doe", "P-1024", null, "Last scan: 2 weeks ago • Dr. Bennett", "Pneumonia History", "Smoker"),
-            PatientHistoryItem("Jane Smith", "P-1025", null, "Last scan: 2 weeks ago • Dr. Bennett", "Pneumonia History", "Smoker"),
-            PatientHistoryItem("Robert Johnson", "P-1026", null, "Last scan: 2 weeks ago • Dr. Bennett", "Pneumonia History", "Smoker")
-        )
-
-        val adapter = PatientHistoryAdapter(historyList)
-        recyclerView.adapter = adapter
+        // Start with empty list
+        recyclerView.adapter = PatientHistoryAdapter(listOf())
     }
 
     private fun loadPatientHistory() {
@@ -115,6 +112,9 @@ class PatientHistoryActivity : AppCompatActivity() {
                 if (response.isSuccessful && response.body() != null) {
                     val completedCases = response.body()!!
                     if (completedCases.isNotEmpty()) {
+                        llEmptyState.visibility = android.view.View.GONE
+                        findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_patient_history).visibility = android.view.View.VISIBLE
+                        
                         val adapter = PatientHistoryAdapter(completedCases.map { 
                             PatientHistoryItem(
                                 it.patientName ?: "Unknown",
@@ -126,13 +126,18 @@ class PatientHistoryActivity : AppCompatActivity() {
                             )
                         })
                         findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_patient_history).adapter = adapter
+                    } else {
+                        llEmptyState.visibility = android.view.View.VISIBLE
+                        findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_patient_history).visibility = android.view.View.GONE
                     }
                 } else {
                     android.util.Log.e("PatientHistory", "API Error ${response.code()}: ${response.errorBody()?.string()}")
+                    llEmptyState.visibility = android.view.View.VISIBLE
                 }
             }
             override fun onFailure(call: retrofit2.Call<List<TriageCaseResponse>>, t: Throwable) {
                 android.util.Log.e("PatientHistory", "Failure: ${t.message}")
+                llEmptyState.visibility = android.view.View.VISIBLE
             }
         })
     }

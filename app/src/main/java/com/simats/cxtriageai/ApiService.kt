@@ -200,9 +200,9 @@ interface ApiService {
         @Path("case_id") caseId: Int
     ): Call<List<TriageCaseResponse>>
 
-    @GET("technician/profile/{technician_id}")
+    @GET("technician/profile/{email}")
     fun getTechnicianProfile(
-        @Path("technician_id") technicianId: Int
+        @Path("email") email: String
     ): Call<TechnicianProfileResponse>
 
     @PUT("technician/update-profile")
@@ -236,9 +236,9 @@ interface ApiService {
     ): Call<TechnicianDashboardStats>
 
     @Multipart
-    @POST("technician/upload-profile-photo/{technician_id}")
+    @POST("technician/upload-photo/{email}")
     fun uploadTechnicianPhoto(
-        @Path("technician_id") technicianId: Int,
+        @Path("email") email: String,
         @Part file: MultipartBody.Part
     ): Call<UpdateTechnicianProfileResponse>
 
@@ -257,9 +257,9 @@ interface ApiService {
         @Path("case_id") caseId: Int
     ): Call<ReportResponse>
 
-    @GET("doctor/profile/{doctor_id}")
+    @GET("doctor/profile/{email}")
     fun getDoctorProfile(
-        @Path("doctor_id") doctorId: Int
+        @Path("email") email: String
     ): Call<DoctorProfileResponse>
 
     @PUT("doctor/update-profile")
@@ -268,9 +268,9 @@ interface ApiService {
     ): Call<UpdateDoctorProfileResponse>
 
     @Multipart
-    @POST("doctor/upload-profile-photo/{doctor_id}")
+    @POST("doctor/upload-photo/{email}")
     fun uploadDoctorPhoto(
-        @Path("doctor_id") doctorId: Int,
+        @Path("email") email: String,
         @Part file: MultipartBody.Part
     ): Call<UpdateDoctorProfileResponse>
 }
